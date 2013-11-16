@@ -31,3 +31,15 @@ exports.article = {
         next();
     }
 };
+
+/**
+ * Place authorizations routing middleware
+ */
+exports.place = {
+    hasAuthorization: function(req, res, next) {
+        if (req.place.user.id != req.user.id) {
+            return res.send(401, 'User is not authorized');
+        }
+        next();
+    }
+};

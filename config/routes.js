@@ -71,6 +71,17 @@ module.exports = function(app, passport, auth) {
     //Finish with setting up the articleId param
     app.param('articleId', articles.article);
 
+    //Place Routes
+    var places = require('../app/controllers/places');
+    app.get('/places', places.all);
+    app.post('/places', auth.requiresLogin, places.create);
+    app.get('/places/:placeId', places.show);
+    app.put('/places/:placeId', auth.requiresLogin, auth.place.hasAuthorization, places.update);
+    app.del('/places/:placeId', auth.requiresLogin, auth.place.hasAuthorization, places.destroy);
+
+    //Finish with setting up the placeId param
+    app.param('placeId', places.place);
+
     //Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);
