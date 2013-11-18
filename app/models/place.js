@@ -24,6 +24,10 @@ var PlaceSchema = new Schema({
         default: '',
         trim: true
     },
+    img: {
+        type: String,
+        default: 'https://lh4.googleusercontent.com/NTaSzU9S8mwX_OhAZlMmwmXhTvukAQKB_MNYqAjNQgE=w294-h194-p-no'
+    },
     lat: {
         type: Number,
         default: 0
