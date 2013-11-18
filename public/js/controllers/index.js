@@ -1,33 +1,18 @@
 angular.module('mean.system').controller('IndexController', ['$scope', 'Global', function ($scope, Global) {
     $scope.global = Global;
-    
-    $scope.places = [
-        'Lorem ipsum dolor sit amet',
-        'Lorem ipsum dolor sit amet',
-        'Restaurants',
-        'Abbey',
-        'Airport',
-        'Restaurants',
-        'Abbey',
-        'Airport',
-        'Restaurants',
-        'Abbey',
-        'Airport',
-        'Restaurants',
-        'Abbey',
-        'Airport',
-        'Restaurants',
-        'Abbey',
-        'Airport',
-        'Restaurants',
-        'Pubs'
-    ];
-
+        
     angular.extend($scope, {
         farnborough: {
             lat: 51.293,
             lng: -0.75,
             zoom: 18
+        },
+        marker: {
+            lat: 51.293,
+            lng: -0.75,
+            focus: true,
+            draggable: true
+
         },
         markers: {
             farnboroughMarker: {

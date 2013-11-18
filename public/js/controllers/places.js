@@ -1,11 +1,18 @@
 angular.module('mean.places').controller('PlacesController', ['$scope', '$routeParams', '$location', 'Global', 'Places', function ($scope, $routeParams, $location, Global, Places) {
     $scope.global = Global;
-    
+
     angular.extend($scope, {
         center: {
             lat: 51.293,
             lng: -0.75,
-            zoom: 18
+            zoom: 16
+        },
+        marker: {
+            lat: 51.293,
+            lng: -0.75,
+            focus: true,
+            draggable: true
+
         },
         markers: {
             m1: {
@@ -17,7 +24,9 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
         }
     },
     defaults: {
-        tileLayer: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+        maxZoom: 18,
+        minZoom: 1,
+        zoom: 6,
         zoomControlPosition: 'topright',
         tileLayerOptions: {
             opacity: 0.9,
@@ -59,8 +68,8 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
             place.updated = [];
         }
 
-        place.lat = $scope.markers.m1.lat;
-        place.lng = $scope.markers.m1.lng;
+        place.lat = $scope.marker.lat;
+        place.lng = $scope.marker.lng;
 
         place.updated.push(new Date().getTime());
 
@@ -82,8 +91,8 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
             $scope.place = place;
             $scope.center.lat = place.lat;
             $scope.center.lng = place.lng;
-            $scope.markers.m1.lat = place.lat;
-            $scope.markers.m1.lng = place.lng;
+            $scope.marker.lat = place.lat;
+            $scope.marker.lng = place.lng;
         });
     };
 }]);

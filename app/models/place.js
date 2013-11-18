@@ -32,6 +32,18 @@ var PlaceSchema = new Schema({
         type: Number,
         default: 0
     },
+    markers: {
+        gps: {
+            lat: {
+                type: Number,
+                default: 51.293
+            },
+            lng: {
+                type: Number,
+                default: -0.75
+            }
+        }
+    },
     user: {
         type: Schema.ObjectId,
         ref: 'User'

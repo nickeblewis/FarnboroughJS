@@ -1,6 +1,20 @@
 <section data-ng-controller="PlacesController" data-ng-init="findOne()">
+	<div class="row">
+	<div class="span6">
+			<leaflet defaults="defaults" center="center" marker="marker" width="100%" height="520" class="top"></leaflet>         
+		</div>
+		<div class="span6">
+			
+		
 	<span>{{place.created | date:'medium'}}</span> /
 	<span>{{place.user.name}}</span>
-	<h2>{{place.title}} <a data-ng-show="global.user._id == place.user._id" href="/#!/places/{{place._id}}/edit">edit</a></h2>
+	<h2>{{place.title}}</h2>
 	<div>{{place.content}}</div>
+	<div class="control-group">
+			<div class="controls">
+				<a class="btn" data-ng-show="global.user._id == place.user._id" href="/#!/places/{{place._id}}/edit">edit</a>
+			</div>
+		</div>
+</div>
+</div>
 </section>
