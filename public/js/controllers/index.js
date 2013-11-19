@@ -5,7 +5,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
         farnborough: {
             lat: 51.293,
             lng: -0.75,
-            zoom: 18
+            zoom: 16
         },
         marker: {
             lat: 51.293,
@@ -24,7 +24,9 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
         }
     },
     defaults: {
-        tileLayer: "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+        maxZoom: 18,
+        minZoom: 1,
+        zoom: 6,
         zoomControlPosition: 'topright',
         tileLayerOptions: {
             opacity: 0.9,
