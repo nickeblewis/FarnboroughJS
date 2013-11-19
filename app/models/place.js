@@ -28,6 +28,15 @@ var PlaceSchema = new Schema({
         type: String,
         default: 'https://lh4.googleusercontent.com/NTaSzU9S8mwX_OhAZlMmwmXhTvukAQKB_MNYqAjNQgE=w294-h194-p-no'
     },
+    address: {
+        contact: String,
+        number: Number,
+        street: String,
+        postcode: String,
+        telephone: String,
+        fax: String,
+        email: String    
+    },
     lat: {
         type: Number,
         default: 51.293
@@ -35,18 +44,6 @@ var PlaceSchema = new Schema({
     lng: {
         type: Number,
         default: -0.75
-    },
-    markers: {
-        gps: {
-            lat: {
-                type: Number,
-                default: 51.293
-            },
-            lng: {
-                type: Number,
-                default: -0.75
-            }
-        }
     },
     user: {
         type: Schema.ObjectId,
