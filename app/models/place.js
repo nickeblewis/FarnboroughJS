@@ -30,11 +30,11 @@ var PlaceSchema = new Schema({
     },
     lat: {
         type: Number,
-        default: 0
+        default: 51.293
     },
     lng: {
         type: Number,
-        default: 0
+        default: -0.75
     },
     markers: {
         gps: {
