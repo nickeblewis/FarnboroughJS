@@ -41,8 +41,8 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
         var place = new Places({
             title: this.title,
             content: this.content,
-            lat: this.lat,
-            lng: this.lng
+            lat: $scope.marker.lat,
+            lng: $scope.marker.lng
         });
         place.$save(function(response) {
             $location.path("places/" + response._id);
@@ -50,6 +50,8 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
 
         this.title = "";
         this.content = "";
+        this.lat = 51.293;
+        this.lng = -0.75;
     };
 
     $scope.remove = function(place) {
