@@ -37,6 +37,10 @@ var PlaceSchema = new Schema({
         fax: String,
         email: String    
     },
+    website: {
+        title: String,
+        url: String
+    },
     lat: {
         type: Number,
         default: 51.293
