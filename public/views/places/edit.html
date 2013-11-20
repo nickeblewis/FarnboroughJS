@@ -5,22 +5,26 @@
 		</div>
 		<div class="span6">
 			<form class="form-horizontal" data-ng-submit="update()">
+
+		<!-- Title -->
 		<div class="control-group">
 			<label class="control-label" for="title">Title</label>
-
 			<div class="controls">
 				<input type="text" data-ng-model="place.title" id="title" placeholder="Title" required>
 				</input>
 			</div>
 		</div>
+
+		<!-- Image - currently using images off of Google+ but may use S3 in the future? -->
 		<div class="control-group">
 			<label class="control-label" for="image">Image</label>
-
 			<div class="controls">
 				<input type="text" data-ng-model="place.img" id="img" placeholder="Image" required>
 				</input>
 			</div>
 		</div>
+
+		<!-- GPS location - note that a separate marker object is used here in order to hook up with the draggable marker on the map -->
 		<div class="control-group">
 			<label class="control-label" for="lat">GPS</label>
 			<div class="controls">
@@ -30,9 +34,10 @@
 				<input type="text" data-ng-model="marker.lng" id="lng" placeholder="Longitude" required>
 			</div>
 		</div>
+
+		<!-- The article content - now I am thinking that it would be nice to have rich text here and a bigger box at that -->
 		<div class="control-group">
 			<label class="control-label" for="content">Content</label>
-
 			<div class="controls">
 				<textarea data-ng-model="place.content" id="content" cols="30" rows="10" placeholder="Content">
 				</textarea>
