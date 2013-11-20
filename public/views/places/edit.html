@@ -43,6 +43,48 @@
 				</textarea>
 			</div>
 		</div>
+
+		<!-- Address section - would it be possible to use this as a way of guessing where the marker should be, if I don't manually move it? -->
+		<div class="control-group">
+			<!-- Contact - Name of person whom is the best contact regarding this place -->
+			<label class="control-label" for="contact">Contact</label>
+			<div class="controls">
+				<input type="text" data-ng-model="place.address.contact" id="contact" placeholder="Contact" required>
+				</input>
+			</div>
+			<label class="control-label" for="number">Number</label>
+			<div class="controls">
+				<input type="text" data-ng-model="place.address.number" id="number" placeholder="Number" required>
+				</input>
+			</div>
+			<label class="control-label" for="street">Street</label>
+			<div class="controls">
+				<input type="text" data-ng-model="place.address.street" id="street" placeholder="Street" required>
+				</input>
+			</div>
+			<label class="control-label" for="postcode">Postcode</label>
+			<div class="controls">
+				<input type="text" data-ng-model="place.address.postcode" id="postcode" placeholder="Postcode" required>
+				</input>
+			</div>
+			<label class="control-label" for="telephone">Telephone</label>
+			<div class="controls">
+				<input type="text" data-ng-model="place.address.telephone" id="telephone" placeholder="Telephone" required>
+				</input>
+			</div>
+			<label class="control-label" for="fax">Fax</label>
+			<div class="controls">
+				<input type="text" data-ng-model="place.address.fax" id="fax" placeholder="Fax" required>
+				</input>
+			</div>
+			<label class="control-label" for="email">Email</label>
+			<div class="controls">
+				<input type="text" data-ng-model="place.address.email" id="email" placeholder="Email" required>
+				</input>
+			</div>
+		</div>
+
+		<!-- The ubmit button goes here -->
 		<div class="control-group">
 			<div class="controls">
 				<input type="submit" class="btn">
