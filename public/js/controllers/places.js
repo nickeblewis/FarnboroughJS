@@ -51,11 +51,12 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
                 telephone: this.telephone,
                 fax: this.fax,
                 email: this.email
-            },
-            website: {
-                title: this.wtitle,
-                url: url
             }
+            // ,
+            // website: {
+            //     title: this.wtitle,
+            //     url: url
+            // }
         });
 
         place.$save(function(response) {

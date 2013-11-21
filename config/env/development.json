@@ -1,5 +1,5 @@
 {
-    "db": "mongodb://localhost/farnborough-guide",
+    "db": "mongodb://nickeblewis:Algarve2012@dharma.mongohq.com:10062/farnborough-guide",
     "app": {
         "name": "MEAN - A Modern Stack - Development"
     },
