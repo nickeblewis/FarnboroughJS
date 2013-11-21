@@ -42,8 +42,22 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
             title: this.title,
             content: this.content,
             lat: $scope.marker.lat,
-            lng: $scope.marker.lng
+            lng: $scope.marker.lng,
+            address: {
+                contact: this.contact,
+                number: this.number,
+                street: this.street,
+                postcode: this.postcode,
+                telephone: this.telephone,
+                fax: this.fax,
+                email: this.email
+            },
+            website: {
+                title: this.wtitle,
+                url: url
+            }
         });
+
         place.$save(function(response) {
             $location.path("places/" + response._id);
         });

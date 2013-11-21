@@ -10,6 +10,17 @@
 	<span>{{place.user.name}}</span>
 	<h2>{{place.title}}</h2>
 	<div>{{place.content}}</div>
+
+	<div>{{place.address.contact}}</div>
+	<div>{{place.address.number}}</div>
+	<div>{{place.address.street}}</div>
+	<div>{{place.address.postcode}}</div>
+	<div>{{place.address.telephone}}</div>
+	<div>{{place.address.fax}}</div>
+	<div>{{place.address.email}}</div>
+	
+	<div><a href="{{place.website.url}}">{{place.website.title}}</a></div>
+
 	<div class="control-group">
 			<div class="controls">
 				<a class="btn" data-ng-show="global.user._id == place.user._id" href="/#!/places/{{place._id}}/edit">edit</a>

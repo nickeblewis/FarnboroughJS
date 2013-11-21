@@ -26,8 +26,9 @@ footer p {
 
 /* Common stuff added */
 body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #9AC071;
+    font-family: 'Source Sans Pro', sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     color: #333;
     margin-top: 60px;
 }
@@ -813,8 +814,8 @@ h5 .intro_sections { color:#777; }
   padding:8px 15px 10px;
     border-bottom:1px solid #ccc;
     background-color:#f5f5f5; 
-  font-size:12px;
-  color:#999;
+  /*font-size:12px;*/
+  /*color:#999;*/
 }
 
 .item_description:after {
@@ -832,7 +833,7 @@ h5 .intro_sections { color:#777; }
   left:3%;
 }
 
-.item_description a { font-size:13px; color:#666; }
+.item_description a { /*font-size:13px;*/ color:#941313; }
 .item_description a:hover { color:#444; }
 .item_description:hover{ 
   border-bottom-color:#aaa; }

@@ -41,6 +41,29 @@ var PlaceSchema = new Schema({
         title: String,
         url: String
     },
+    opening: {
+        monday: {
+            hours: String
+        },
+        tuesday: {
+            hours: String
+        },
+        wednesday: {
+            hours: String
+        },
+        thursday: {
+            hours: String
+        },
+        friday: {
+            hours: String
+        },
+        saturday: {
+            hours: String
+        },
+        sunday: {
+            hours: String
+        }
+    },
     lat: {
         type: Number,
         default: 51.293
