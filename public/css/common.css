@@ -5,7 +5,8 @@
 
 .content {
     /*margin-top:50px;*/
-    width:100%
+    width:100%;
+    background-color: #fff;
 }
 
 footer {
@@ -26,7 +27,7 @@ footer p {
 
 /* Common stuff added */
 body {
-    background: #9AC071;
+    /*background: #416915;*/
     font-family: 'Source Sans Pro', sans-serif;
     /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
     color: #333;
@@ -65,6 +66,34 @@ body {
   margin-bottom: 20px;*/
 }
 
+/* This needs to be LESS!!!!! */
+.add-new .item_description {
+  /*background-color: #eec2c2;*/
+}
+
+/*.add-new h3, .add-new p {
+  background-color: yellow;
+}*/
+
+.add-new input {
+  
+  padding: 0;
+  width: 100%;
+  background-color: #f8f8b3;
+  border-radius: 0;
+}
+
+.add-new input:focus {
+  outline: 0;
+}
+
+.add-new textarea {
+  
+  padding: 0;
+  width: 100%;
+  background-color: #f8f8b3;
+  border-radius: 0;
+}
 
 
 
@@ -844,9 +873,9 @@ h5 .intro_sections { color:#777; }
 /* Isotope CSS3 transition */
 .isotope,
 .isotope .isotope-item {
-  -webkit-transition-duration: 0.8s;
+ /* -webkit-transition-duration: 0.8s;
      -moz-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+          transition-duration: 0.8s;*/
 }
 .isotope {
   -webkit-transition-property: height, width;
@@ -1609,9 +1638,14 @@ ul.nav-tabs { margin: 0 !important; }
   animation-name: fadeInDown;
 }
 
+.search-box {
+  margin-bottom: 20px;
+}
 
-
-
-
-
+/* The place view page */
+.place-info {
+  background-color: #fff;
+  padding: 10px;
+  height: 510px; /* The same height as the map */
+}
 

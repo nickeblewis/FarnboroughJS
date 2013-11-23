@@ -3,14 +3,48 @@
 	<leaflet center="farnborough" marker="marker" default="defaults" width="100%" height="220"></leaflet>         
 </section>
 
+<!-- The search bar appears here -->
+<section>
+	<div class="row">
+		<div class="span12">
+			<div class="search-box">
+				<input type="text" ng-model="search" class="search-query" placeholder="Search">		
+			</div>
+		</div>
+	</div>
+</section>
+ 
+
 <!-- The cards as I call them, that show various details about things in the area -->
 <section data-ng-controller="PlacesController" data-ng-init="find()">
 	<div class="row">
+
+			<!-- ISOTOPE requires a container in order to work -->
 	    <div class="isotope" isotope-container>
-	        <div class="span3 element place-card general" ng-repeat="place in places" data-category="uncritiqued" isotope-item>
+
+					<!-- If you are logged in you can add new cards right here in the flow! -->
+					<div class="span3 element place-card add-new general" isotope-item>
 	            <div class="hover_img">
-              	<!-- <img src="http://placehold.it/300x150" alt="" style="opacity: 1;"> -->
-              	<img src="{{place.img}}" alt="" style="opacity: 1;">
+              	<img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
+              </div>
+	            <div class="item_description">
+	                <h3>
+	                    <span class="user"><a href="#" contenteditable>new entry</a></span>
+	                </h3>
+	                <p class="content" contenteditable>
+	                    Your content here
+	                </p>
+	                <!-- <input type="text" placeholder="new entry">
+	                <textarea name="" id="" cols="30" rows="10" placeholder="the details about it"></textarea> -->
+	            </div>
+	        </div>
+
+	    		<!-- The card deck taken from all current cards on the system -->
+	    		<!-- TODO I need to decide on filtering as I go along this will become more complex later -->
+	        <div class="span3 element place-card general" ng-repeat="place in places | filter:search | orderBy:'title'" data-category="uncritiqued" isotope-item>
+	            <div class="hover_img">
+              	<img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
+              	<!-- <img src="{{place.img}}" alt="" style="opacity: 1;"> -->
               </div>
 	            <div class="item_description">
 	                <h3>
