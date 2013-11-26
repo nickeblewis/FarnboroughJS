@@ -8,6 +8,7 @@
     "angular-cookies": "1.0.6",
     "angular-bootstrap": "0.6.0",
     "angular-ui-utils": "0.0.4",
-    "angular-bootstrap-affix": "~0.3.0"
+    "angular-bootstrap-affix": "~0.3.0",
+    "angular-contenteditable": "~0.3.6"
   }
 }

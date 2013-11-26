@@ -21,6 +21,9 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
                 message: "Grab this marker in order to set the new location!",
                 focus: true,
                 draggable:  true
+        },
+        place: {
+            title: "Thingy majuke"
         }
     },
     defaults: {
@@ -37,6 +40,9 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
     }
     });
 
+    $scope.title = "new entry title - just start typing in these boxes!";
+    $scope.content = "Just fill this bit out with the details for your business, place, organisation, church, charity or whatever it may be. So long as it is in Farnborough and relevant to the town, we want to know about it and so does the rest of the World!<br /><br />You don't need a profile to create an item for the Farnborough Guide but it should be something you would consider if you want to use this site often. We will review your entry and will invoice you accordingly - more details on our pricing can be found under the pricing section...";
+    
     $scope.create = function() {
         var place = new Places({
             title: this.title,

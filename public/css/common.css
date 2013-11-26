@@ -5,8 +5,18 @@
 
 .content {
     /*margin-top:50px;*/
-    width:100%;
-    background-color: #fff;
+    /*width:100%;
+    background-color: #fff;*/
+}
+
+[contenteditable="true"] {
+  padding: 6px;
+  outline: 1px dashed #CCC;
+}
+
+[contenteditable="true"]:hover {
+  background: #FF9;
+  outline: 1px dashed #000;
 }
 
 footer {
