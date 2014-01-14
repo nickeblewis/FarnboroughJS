@@ -1,7 +1,13 @@
-angular.module('mean.places').controller('PlacesController', ['$scope', '$routeParams', '$location', 'Global', 'Places', function ($scope, $routeParams, $location, Global, Places) {
+angular.module('mean.places').controller('PlacesController', ['$scope', '$firebase', '$routeParams', '$location', 'Global', function ($scope, $firebase, $routeParams, $location, Global) {
     $scope.global = Global;
-
+    var placesURL= "https://farnborough.firebaseio.com";
+    
+    $scope.places = {};
+    var dataRef = new Firebase(placesURL + '/places');
+    $scope.places = $firebase(dataRef);
     angular.extend($scope, {
+        status: "Hold on tight, loading...",
+        loaded: 0,
         center: {
             lat: 51.293,
             lng: -0.75,
@@ -43,10 +49,36 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
     $scope.title = "new entry title - just start typing in these boxes!";
     $scope.content = "Just fill this bit out with the details for your business, place, organisation, church, charity or whatever it may be. So long as it is in Farnborough and relevant to the town, we want to know about it and so does the rest of the World!<br /><br />You don't need a profile to create an item for the Farnborough Guide but it should be something you would consider if you want to use this site often. We will review your entry and will invoice you accordingly - more details on our pricing can be found under the pricing section...";
     
+    $scope.places.$on("loaded", function() {
+        $scope.status = "Lets Go!";
+        $scope.loaded = 1;
+    });
+
+    dataRef.on("child_changed", function(snapshot) {
+        var placeName = snapshot.name(), userData = snapshot.val();
+        $scope.status = "Place " + placeName + " has been updated";
+    });
+
+    dataRef.on("child_added", function(snapshot) {
+        var placeName = snapshot.name(), userData = snapshot.val();
+        $scope.status = "Place " + placeName + " has been added";
+    });
+
+    dataRef.on("child_removed", function(snapshot) {
+        var placeName = snapshot.name(), userData = snapshot.val();
+        $scope.status = "Place " + placeName + " has been removed";
+    });
+
+    // $scope.places.$on("change", function() {
+    //     if ($scope.loaded === 1) {
+    //         $scope.status = "Changing data....";
+    //     }
+    // });
+
     $scope.create = function() {
-        var place = new Places({
-            title: this.title,
-            content: this.content,
+        $scope.places.$add({
+            name: this.name,
+            description: this.description,
             lat: $scope.marker.lat,
             lng: $scope.marker.lng,
             address: {
@@ -58,21 +90,10 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
                 fax: this.fax,
                 email: this.email
             }
-            // ,
-            // website: {
-            //     title: this.wtitle,
-            //     url: url
-            // }
-        });
+           
 
-        place.$save(function(response) {
-            $location.path("places/" + response._id);
-        });
-
-        this.title = "";
-        this.content = "";
-        this.lat = 51.293;
-        this.lng = -0.75;
+            });
+       
     };
 
     $scope.remove = function(place) {
@@ -102,20 +123,35 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$routeP
     };
 
     $scope.find = function() {
-        Places.query(function(places) {
-            $scope.places = places;
-        });
+        // Places.query(function(places) {
+        //     $scope.places = places;
+        // });
+       
     };
 
     $scope.findOne = function() {
-        Places.get({
-            placeId: $routeParams.placeId
-        }, function(place) {
-            $scope.place = place;
-            $scope.center.lat = place.lat;
-            $scope.center.lng = place.lng;
-            $scope.marker.lat = place.lat;
-            $scope.marker.lng = place.lng;
-        });
+
+        $scope.place = {};
+
+        var dataRef = new Firebase('https://farnborough.firebaseio.com/places/' + $routeParams.placeId);
+    
+        dataRef.on('value', function(snapshot) {
+            console.log(snapshot.val());
+              $scope.place = snapshot.val();
+              
+              $scope.center.lat = snapshot.val().lat;
+              $scope.center.lng = snapshot.val().lng;
+            $scope.marker.lat = snapshot.val().lat;
+              $scope.marker.lng = snapshot.val().lng;
+         });
+        // Places.get({
+        //     placeId: $routeParams.placeId
+        // }, function(place) {
+        //     $scope.place = place;
+        //     $scope.center.lat = place.lat;
+        //     $scope.center.lng = place.lng;
+        //     $scope.marker.lat = place.lat;
+        //     $scope.marker.lng = place.lng;
+        // });
     };
 }]);

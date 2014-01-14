@@ -4,37 +4,30 @@
 </section> -->
  
 <section data-ng-controller="PlacesController">
-	<div class="row">
+	<!-- <div class="row">
 		
-		<!-- If you are logged in you can add new cards right here in the flow! -->
 		<div class="span4">
-			<!-- <div class="hover_img">
-  		<img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
-    	</div> -->
+		
   		<leaflet center="center" marker="marker" default="defaults" width="100%" height="425"></leaflet> 
     </div>
     <div class="span8">
     	<div class="hover_img">
               	<img src="http://placehold.it/700x150" alt="" style="opacity: 1;">
-              	<!-- <img src="{{place.img}}" alt="" style="opacity: 1;"> -->
               </div>
 			<div class="item_description">
     		<h3 contenteditable="true" data-ng-model="title">
       		<span class="user"><a href="#">new entry title - just start typing in these boxes!</a></span>
-        	<!-- <span class="user"><a href="#" contenteditable>{{title}}</a></span> -->
         </h3>
         <p class="content" contenteditable="true" data-ng-model="content">
         	Just fill this bit out with the details for your business, place, organisation, church, charity or whatever it may be. So long as it is in Farnborough and relevant to the town, we want to know about it and so does the rest of the World!
         	<br/><br/>
 					You don't need a profile to create an item for the Farnborough Guide but it should be something you would consider if you want to use this site often. We will review your entry and will invoice you accordingly - more details on our pricing can be found under the pricing section...
         </p>
-        <!-- <input type="text" placeholder="new entry">
-        <textarea name="" id="" cols="30" rows="10" placeholder="the details about it"></textarea> -->
     		<b>GPS: {{marker.lat}} {{marker.lng}}</b>
 	      <button type="button" class="btn btn-success offset6">Send it in!</button>	          		
     	</div>
     </div>
-  </div>	                	                
+  </div> -->	                	                
       <!--       </div>
         </div>
 	</div> -->
@@ -45,7 +38,7 @@
 	<div class="row">
 		<div class="span12">
 			<div class="search-box">
-				<input type="text" ng-model="search" class="search-query" placeholder="Search">		
+				<input type="text" ng-model="search.name" class="search-query" placeholder="Search">		
 			</div>
 		</div>
 	</div>
@@ -60,8 +53,10 @@
 </section>
 <!-- The cards as I call them, that show various details about things in the area -->
 <section data-ng-controller="PlacesController" data-ng-init="find()">
+	
 	<div class="row">
-
+		<h1 class="bigstatus">{{status}}</h1>
+	
 			<!-- ISOTOPE requires a container in order to work -->
 	    <div class="isotope" isotope-container>
 
@@ -69,17 +64,17 @@
 
 	    		<!-- The card deck taken from all current cards on the system -->
 	    		<!-- TODO I need to decide on filtering as I go along this will become more complex later -->
-	        <div class="span3 element place-card general" ng-repeat="place in places | filter:search | orderBy:'title'" data-category="uncritiqued" isotope-item>
+	        <div class="span3 element place-card general" ng-repeat="(name, place) in places" data-category="uncritiqued" isotope-item>
 	            <div class="hover_img">
               	<img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
               	<!-- <img src="{{place.img}}" alt="" style="opacity: 1;"> -->
               </div>
 	            <div class="item_description">
 	                <h3>
-	                    <span class="user"><a data-ng-href="#!/places/{{place._id}}">{{place.title}}</a></span>
+	                    <span class="user"><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></span>
 	                </h3>
 	                <p class="content">
-	                    {{place.content}}
+	                    {{place.description}}
 	                </p>
 	                <!-- <span class="timestamp">Posted 3 days ago.</span> <a href="/photo/62" rel="nofollow" title="Old wooden door in the woods">delete</a> 1 comments -->
 	            </div>
