@@ -1,0 +1,11 @@
+<section data-ng-controller="PlacesController" data-ng-init="find()">
+	<ul class="articles unstyled">
+		<li data-ng-repeat="place in places">
+			<span>{{place.created | date:'medium'}}</span> /
+			<span>{{place.user.name}}</span>
+			<h2><a data-ng-href="#!/places/{{place._id}}">{{place.title}}</a></h2>
+			<div>{{place.content}}</div>
+		</li>
+	</ul>
+	<h1 data-ng-hide="!places || places.length">No places yet. <br> Why don't you <a href="/#!/places/create">Create One</a>?</h1>
+</section>

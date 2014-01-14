@@ -1,0 +1,9 @@
+{
+  "name": "angular-isotope",
+  "version": "0.0.0",
+  "commit": "c856ffa31b910c996af7935e334b8c3ab73881be",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mankindsoftware/angular-isotope"
+  }
+}
