@@ -5,18 +5,24 @@
 		</div>
 		<div class="span6">
 			<div class="place-info">
-				<span>{{place.created | date:'medium'}}</span> /
-				<span>{{place.user.name}}</span>
+<!-- 				<span>{{place.created | date:'medium'}}</span> /
+				<span>{{place.user.name}}</span> -->
 				<h2>{{place.name}}</h2>
-				<div>{{place.description}}</div>
+				<div data-ng-bind-html-unsafe="place.details"></div>
 
 				<div>{{place.address.contact}}</div>
+
+				<h2>Address</h2>
 				<div>{{place.address.number}}</div>
 				<div>{{place.address.street}}</div>
 				<div>{{place.address.postcode}}</div>
+
+				<h2>Phone/Fax</h2>
 				<div>{{place.address.telephone}}</div>
 				<div>{{place.address.fax}}</div>
-				<div>{{place.address.email}}</div>
+
+				<h2>Email</h2>
+				<div><a href="mailto:{{place.address.email}}">{{place.address.email}}</a></div>
 				<!--<div><a href="{{place.website.url}}">{{place.website.title}}</a></div>-->
 
 				<div class="control-group">
