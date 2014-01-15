@@ -1,3 +1,22 @@
+html { 
+  background: url('/img/backdrops/farnborough01.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+	background-color: inherit;
+}
+.container {
+	width: 980px;
+	margin: 50px auto;
+	padding: 20px;
+	-webkit-box-shadow: 0 0 20px black;
+	box-shadow: 0 0 20px black;
+	background-color: white;
+}
 h1 {
     text-align:center
 }
