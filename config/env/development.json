@@ -1,7 +1,7 @@
 {
     "db": "mongodb://nickeblewis:Algarve2012@dharma.mongohq.com:10062/farnborough-guide",
     "app": {
-        "name": "FarnboroughJS"
+        "name": "Farnborough Guide"
     },
     "facebook": {
         "clientID": "APP_ID",
