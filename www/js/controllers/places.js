@@ -55,17 +55,17 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     });
 
     dataRef.on("child_changed", function(snapshot) {
-        var placeName = snapshot.name(), userData = snapshot.val();
+        var placeName = snapshot.val().name, userData = snapshot.val();
         $scope.status = "Place " + placeName + " has been updated";
     });
 
     dataRef.on("child_added", function(snapshot) {
-        var placeName = snapshot.name(), userData = snapshot.val();
+        var placeName = snapshot.val().name, userData = snapshot.val();
         $scope.status = "Place " + placeName + " has been added";
     });
 
     dataRef.on("child_removed", function(snapshot) {
-        var placeName = snapshot.name(), userData = snapshot.val();
+        var placeName = snapshot.val().name, userData = snapshot.val();
         $scope.status = "Place " + placeName + " has been removed";
     });
 
