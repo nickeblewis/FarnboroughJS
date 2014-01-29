@@ -1,39 +1,3 @@
-<!-- The map ha it's own controller for the moment, though that may change -->
-<!-- <section data-ng-controller="IndexController">
-	<leaflet center="farnborough" marker="marker" default="defaults" width="100%" height="220"></leaflet>         
-</section> -->
- 
-<section data-ng-controller="PlacesController">
-	<!-- <div class="row">
-		
-		<div class="span4">
-		
-  		<leaflet center="center" marker="marker" default="defaults" width="100%" height="425"></leaflet> 
-    </div>
-    <div class="span8">
-    	<div class="hover_img">
-              	<img src="http://placehold.it/700x150" alt="" style="opacity: 1;">
-              </div>
-			<div class="item_description">
-    		<h3 contenteditable="true" data-ng-model="title">
-      		<span class="user"><a href="#">new entry title - just start typing in these boxes!</a></span>
-        </h3>
-        <p class="content" contenteditable="true" data-ng-model="content">
-        	Just fill this bit out with the details for your business, place, organisation, church, charity or whatever it may be. So long as it is in Farnborough and relevant to the town, we want to know about it and so does the rest of the World!
-        	<br/><br/>
-					You don't need a profile to create an item for the Farnborough Guide but it should be something you would consider if you want to use this site often. We will review your entry and will invoice you accordingly - more details on our pricing can be found under the pricing section...
-        </p>
-    		<b>GPS: {{marker.lat}} {{marker.lng}}</b>
-	      <button type="button" class="btn btn-success offset6">Send it in!</button>	          		
-    	</div>
-    </div>
-  </div> -->	                	                
-      <!--       </div>
-        </div>
-	</div> -->
-</section>
-
-<!-- The search bar appears here -->
 <section>
 	<div class="row">
 		<div class="span12">
@@ -43,7 +7,6 @@
 		</div>
 	</div>
 </section>
-
 <section>
 	<div class="row">
 		<div class="span12">
@@ -51,38 +14,37 @@
 		</div>
 	</div>
 </section>
-<!-- The cards as I call them, that show various details about things in the area -->
 <section data-ng-controller="PlacesController" data-ng-init="find()">
-	
 	<div class="row">
-		<h1 class="bigstatus">{{status}}</h1>
-	
-			<!-- ISOTOPE requires a container in order to work -->
-	    <div class="isotope" isotope-container>
-
-					
-
-	    		<!-- The card deck taken from all current cards on the system -->
-	    		<!-- TODO I need to decide on filtering as I go along this will become more complex later -->
-	        <div class="span3 element place-card general" ng-repeat="(name, place) in places" data-category="uncritiqued" isotope-item>
-	            <div class="hover_img">
-              	<img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
-              	<!-- <img src="{{place.img}}" alt="" style="opacity: 1;"> -->
-              </div>
-	            <div class="item_description">
-	                <h3>
-	                    <span class="user"><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></span>
-	                </h3>
-	                <p class="content">
-	                    {{place.description}}
-	                </p>
-	                <!-- <span class="timestamp">Posted 3 days ago.</span> <a href="/photo/62" rel="nofollow" title="Old wooden door in the woods">delete</a> 1 comments -->
-	            </div>
-	        </div>
-	    </div>
+		<div class="span12 element place-card general" ng-repeat="(name, place) in places" data-category="uncritiqued" isotope-item>
+        <div class="item_description">
+    			<h3>
+        		<span class="user"><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></span>
+          </h3>
+          <p class="content">
+        		{{place.description}}
+          </p>
+        </div>
+      </div>
 	</div>
-	
-	<!-- This bit will only show if there are no places in Mongo to show -->
+	<div class="row">
+		<h1 class="bigstatus">{{status}}</h1>	
+  	<div class="isotope" isotope-container>				
+  		<div class="span3 element place-card general" ng-repeat="(name, place) in places" data-category="uncritiqued" isotope-item>
+    		<div class="hover_img">
+    			<img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
+      	</div>
+        <div class="item_description">
+    			<h3>
+        		<span class="user"><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></span>
+          </h3>
+          <p class="content">
+        		{{place.description}}
+          </p>
+        </div>
+      </div>
+  	</div>
+	</div>
 	<h1 data-ng-hide="!places || places.length">No places yet. <br> Why don't you <a href="/#!/places/create">Create One</a>?</h1>
 </section>
 
