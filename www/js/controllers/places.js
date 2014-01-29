@@ -50,7 +50,7 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     $scope.content = "Just fill this bit out with the details for your business, place, organisation, church, charity or whatever it may be. So long as it is in Farnborough and relevant to the town, we want to know about it and so does the rest of the World!<br /><br />You don't need a profile to create an item for the Farnborough Guide but it should be something you would consider if you want to use this site often. We will review your entry and will invoice you accordingly - more details on our pricing can be found under the pricing section...";
     
     $scope.places.$on("loaded", function() {
-        $scope.status = "Lets Go!";
+        $scope.status = "....";
         $scope.loaded = 1;
     });
 

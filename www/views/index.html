@@ -14,19 +14,7 @@
 		</div>
 	</div>
 </section>
-<section data-ng-controller="PlacesController" data-ng-init="find()">
-	<div class="row">
-		<div class="span12 element place-card general" ng-repeat="(name, place) in places" data-category="uncritiqued" isotope-item>
-        <div class="item_description">
-    			<h3>
-        		<span class="user"><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></span>
-          </h3>
-          <p class="content">
-        		{{place.description}}
-          </p>
-        </div>
-      </div>
-	</div>
+<section data-ng-controller="PlacesController" data-ng-init="find()">	
 	<div class="row">
 		<h1 class="bigstatus">{{status}}</h1>	
   	<div class="isotope" isotope-container>				
