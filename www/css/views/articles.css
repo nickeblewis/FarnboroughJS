@@ -10,7 +10,7 @@ body {
 	background-color: inherit;
 }
 .container {
-	width: 980px;
+	/*width: 980px;*/
 	margin: 50px auto;
 	padding: 20px;
 	-webkit-box-shadow: 0 0 20px black;
@@ -18,10 +18,41 @@ body {
 	/*background-color: white;*/
 	/*opacity: 0.2;*/
 }
+
+.sidebar {
+    position:relative;
+  padding:8px 15px 10px;
+    border-bottom:1px solid #ccc;
+    background-color:#F5F698; 
+  /*font-size:12px;*/
+  /*color:#999;*/
+  height: 508px;
+  	border-radius :10px;
+
+}
+
+.status-bar {
+	background-color: orange;
+	height: 50px;
+	font-size: 18px;
+	padding: 9px;
+	text-align: center;
+}
+
+.welcome-to-farnborough {
+	height: 80px;
+}
 h1 {
     text-align:center
 }
 
 ul.articles li:not(:last-child) {
     border-bottom:1px solid #ccc
+}
+
+.form-container {
+	background-color: #ffffff;
+	border-radius :10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }

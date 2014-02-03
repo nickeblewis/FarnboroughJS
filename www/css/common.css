@@ -17,16 +17,6 @@ html {
     background-color: #fff;*/
 }
 
-[contenteditable="true"] {
-  padding: 6px;
-  outline: 1px dashed #CCC;
-}
-
-[contenteditable="true"]:hover {
-  background: #FF9;
-  outline: 1px dashed #000;
-}
-
 footer {
     position:fixed;
     left:0px;
@@ -866,15 +856,7 @@ h5 .intro_sections { color:#777; }
   height: 180px;
 }
 
-.sidebar {
-    position:relative;
-  padding:8px 15px 10px;
-    border-bottom:1px solid #ccc;
-    background-color:#f5f5f5; 
-  /*font-size:12px;*/
-  /*color:#999;*/
-  /*height: 180px;*/
-}
+
 
 .item_description:after {
   bottom:100%;

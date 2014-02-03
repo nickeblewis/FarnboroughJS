@@ -4,7 +4,9 @@
 			<leaflet defaults="defaults" center="center" marker="marker" width="100%" height="520" class="top"></leaflet>         
 		</div>
 		<div class="span6">
-	<form class="form-horizontal" data-ng-submit="create()">
+	<form class="form-horizontal form-container" data-ng-submit="create()">
+					<h1>Create a new entry</h1>
+
 		<div class="control-group">
 			<label class="control-label" for="name">Name</label>
 			<div class="controls">
@@ -85,7 +87,7 @@
 		<!-- The submit button goes here -->
 		<div class="control-group">
 			<div class="controls">
-				<button type="submit" class="btn">
+				<button type="submit" class="btn" value="Create new entry">Create new entry</button>
 			</div>
 		</div>
 	</form>
