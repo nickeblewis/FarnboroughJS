@@ -5,6 +5,13 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     $scope.places = {};
     var dataRef = new Firebase(placesURL + '/places');
     $scope.places = $firebase(dataRef);
+
+    var objs = [
+{ name : 'Whatever' , has : 'value' , etc : 'etc' },
+{ name : 'Whatever' , has : 'value' , etc : 'etc' },
+{ name : 'Whatever' , has : 'value' , etc : 'etc' }
+]
+
     angular.extend($scope, {
         status: "Hold on tight, loading feed...",
         loaded: 0,
