@@ -15,9 +15,7 @@
           <!-- <p class="content">
             Search goes here  
             
-            <div class="search-box">
-              <input type="text" ng-model="search.name" class="search-query" placeholder="Search">    
-            </div>
+            
           </p> -->
         </div>
       </div>      
@@ -38,10 +36,13 @@
             <p class="content">
               Your guide to all of the cool stuff in this town, some of it you may have never come across before!
             </p>
+            <div class="search-box">
+              <input type="text" ng-model="search" class="search-query" placeholder="Search">    
+            </div>
           </div>
         </div>
         <!-- </div> -->
-        <div class="span3 element place-card general" ng-repeat="(name, place) in places">
+        <div class="span3 element place-card general" ng-repeat="(name, place) in places | filter:search" ng-animate="'animate'">
           <div class="hover_img">
             <img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
           </div>

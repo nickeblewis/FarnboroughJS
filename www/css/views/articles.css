@@ -56,3 +56,13 @@ ul.articles li:not(:last-child) {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
