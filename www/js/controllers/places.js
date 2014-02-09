@@ -6,11 +6,13 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     var dataRef = new Firebase(placesURL + '/places');
     $scope.places = $firebase(dataRef);
 
-    var objs = [
-{ name : 'Whatever' , has : 'value' , etc : 'etc' },
-{ name : 'Whatever' , has : 'value' , etc : 'etc' },
-{ name : 'Whatever' , has : 'value' , etc : 'etc' }
-]
+    $scope.monkey =  { 
+        place:  { 
+            description: "Business center, home to: National Aerospace library. Sourcing City. WorldAPP. Regus.  Cartwright group. Hydra. Imeda.",
+            name: "The Hub",
+            updated: "14/01/2014",
+        }
+    };
 
     angular.extend($scope, {
         status: "Hold on tight, loading feed...",
@@ -127,6 +129,10 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
         place.$update(function() {
             $location.path('places/' + place._id);
         });
+    };
+
+    $scope.search = function() {
+        var dataRef = new Firebase(placesURL + '/places');
     };
 
     $scope.find = function() {

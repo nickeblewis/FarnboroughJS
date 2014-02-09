@@ -37,12 +37,15 @@
               Your guide to all of the cool stuff in this town, some of it you may have never come across before!
             </p>
  -->            <div class="search-box">
-              <input type="text" ng-model="search" class="search-query" placeholder="Search">    
+                  <form class="form-horizontal form-container" data-ng-submit="search()">
+                  <input type="text" ng-model="search" class="search-query" placeholder="Search"> 
+              <button type="submit" class="btn" value="Search">Search</button>   
+            </form>
             </div>
           </div>
         </div>
         <!-- </div> -->
-        <div ng-cloak class="span3 element place-card general" ng-repeat="(name, place) in places" ng-show="search" ng-animate="'animate'">
+        <div ng-cloak class="span3 element place-card general" ng-repeat="(name, place) in places" ng-animate="'animate'">
           <div class="hover_img">
             <img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
           </div>
