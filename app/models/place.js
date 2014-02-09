@@ -30,12 +30,19 @@ var PlaceSchema = new Schema({
     },
     address: {
         contact: String,
+        default: '',
         number: Number,
+        default: '',
         street: String,
+        default: '',
         postcode: String,
+        default: '',
         telephone: String,
+        default: '',
         fax: String,
-        email: String    
+        default: '',
+        email: String,
+        default: ''    
     },
     website: {
         title: String,
