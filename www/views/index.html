@@ -5,29 +5,23 @@
         <!-- <div class="hover_img">
           <img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
         </div> -->
-        <div class="sidebar">
-          
+        <!-- <div class="sidebar">          
           <h3>Search</h3>
           <h3>Categories</h3>
           <h3>Join In</h3>
           <h3>Admin</h3>
           <a href="/#!/places/create">Create Entry</a>
-          <!-- <p class="content">
-            Search goes here  
-            
-            
-          </p> -->
-        </div>
+        </div> -->
       </div>      
     </div>
     <!-- <div class="span9">         -->
       <!-- <div class="isotope" isotope-container>        -->
         <!-- <div class="span12"> -->
-          <div class="span9 element place-card general">
-          <div class="hover_img">
+          <div class="span12 element place-card general">
+<!--           <div class="hover_img">
             <img src="http://placehold.it/700x150" alt="" style="opacity: 1;">
           </div>
-          <div class="status-bar"><p>{{status}}</p> </div>
+ -->          <div class="status-bar"><p>{{status}}</p> </div>
           <div class="item_description welcome-to-farnborough">
 
 <!--             <h3>
@@ -36,23 +30,24 @@
             <p class="content">
               Your guide to all of the cool stuff in this town, some of it you may have never come across before!
             </p>
- -->            <div class="search-box">
+ -->            <!-- <div class="search-box">
                   <form class="form-horizontal form-container" data-ng-submit="search()">
                   <input type="text" ng-model="search" class="search-query" placeholder="Search"> 
               <button type="submit" class="btn" value="Search">Search</button>   
             </form>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- </div> -->
-        <div ng-cloak class="span3 element place-card general" ng-repeat="(name, place) in places" ng-animate="'animate'">
+        <div ng-cloak class="span4 element place-card general" ng-repeat="(name, place) in places" ng-animate="'animate'">
           <div class="hover_img">
-            <img src="http://placehold.it/300x150" alt="" style="opacity: 1;">
+            <!-- <img src="http://placehold.it/300x150" alt="" style="opacity: 1;"> -->
+            <h1><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></h1>
           </div>
           <div class="item_description">
-            <h3>
+            <!-- <h3>
               <span class="user"><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></span>
-            </h3>
+            </h3> -->
             <p class="content">
               {{place.description}}
             </p>

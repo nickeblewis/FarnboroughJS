@@ -812,7 +812,7 @@ h5 .intro_sections { color:#777; }
  ***************************************************/
 
 /**** PORTFOLIO ****/
-.hover_img { position:relative; }
+.hover_img { position:relative; height: 80px; background-color: #444; padding-top: 10px; }
 .hover_img:hover { position:relative; background-color:#111;  }
 .portfolio_zoom{
   display: none;
