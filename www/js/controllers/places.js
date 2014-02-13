@@ -3,12 +3,12 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     var placesURL= "https://farnborough.firebaseio.com";
     
     $scope.places = {};
-    var dataRef = new Firebase(placesURL + '/places')
-        .startAt('The hub')
-        .endAt('The hub')
-        .once('value', function(snap) {
-       console.log('accounts matching email address', snap.val())
-    });
+    var dataRef = new Firebase(placesURL + '/places');
+    //     .startAt('The hub')
+    //     .endAt('The hub')
+    //     .once('value', function(snap) {
+    //    console.log('accounts matching email address', snap.val())
+    // });
     var dataListQuery = dataRef.endAt().limit(5);
     dataListQuery.on('child_added', function(snapshot) {
       var messageInfo = snapshot.val();
@@ -173,4 +173,8 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
         //     $scope.marker.lng = place.lng;
         // });
     };
+
+    $scope.likeThis = function() {
+        
+    }
 }]);

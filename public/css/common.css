@@ -15,6 +15,7 @@ html {
     /*margin-top:50px;*/
     /*width:100%;
     background-color: #fff;*/
+    height: 120px;
 }
 
 footer {
@@ -812,8 +813,11 @@ h5 .intro_sections { color:#777; }
  ***************************************************/
 
 /**** PORTFOLIO ****/
+.hover_img.business {
+  background-color: red;
+}
 .hover_img { position:relative; }
-.hover_img:hover { position:relative; background-color:#111;  }
+.hover_img:hover { position:relative; /*background-color:#111;*/  }
 .portfolio_zoom{
   display: none;
   width:32px; height:32px;

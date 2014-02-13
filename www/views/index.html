@@ -10,12 +10,15 @@
           </div>
         </div>
         <div ng-cloak class="span4 element place-card general" ng-repeat="(name, place) in places" ng-animate="'animate'">
-          <div class="hover_img">
+          <div class="hover_img {{place.class}}">
             <h1><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></h1>
           </div>
           <div class="item_description">
             <p class="content">
               {{place.description}}
+            </p>
+            <p class="meta">
+              <a ng-click="place.likes = place.likes + 1" ng-show="place.likes > 0">{{place.likes}} likes</a>
             </p>
           </div>
         </div>
