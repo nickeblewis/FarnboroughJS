@@ -4,12 +4,12 @@
       <div class="element place-card general">
       </div>      
     </div>
-          <div class="span12 element place-card general">
+          <div class="col-md-12 element place-card general">
           <div class="status-bar"><p>{{status}}</p> </div>
           <div class="item_description welcome-to-farnborough">
           </div>
         </div>
-        <div ng-cloak class="span4 element place-card general" ng-repeat="(name, place) in places" ng-animate="'animate'">
+        <div ng-cloak class="col-md-4 element place-card general" ng-repeat="(name, place) in places" ng-animate="'animate'">
           <div class="hover_img {{place.class}}">
             <h1><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></h1>
           </div>

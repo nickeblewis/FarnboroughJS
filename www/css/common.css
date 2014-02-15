@@ -17,6 +17,7 @@ html {
     background-color: #fff;*/
 }
 
+.navbar { margin-bottom: 0; }
 footer {
     position:fixed;
     left:0px;

@@ -10,27 +10,27 @@ module.exports = function(grunt) {
                 },
             },
             js: {
-                files: ['public/js/**', 'app/**/*.js'],
+                files: ['www/js/**', 'app/**/*.js'],
                 tasks: ['jshint'],
                 options: {
                     livereload: true,
                 },
             },
             html: {
-                files: ['public/views/**'],
+                files: ['www/views/**'],
                 options: {
                     livereload: true,
                 },
             },
             css: {
-                files: ['public/css/**'],
+                files: ['www/css/**'],
                 options: {
                     livereload: true
                 }
             }
         },
         jshint: {
-            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
+            all: ['gruntfile.js', 'www/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
         },
         nodemon: {
             dev: {

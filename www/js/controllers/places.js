@@ -175,6 +175,6 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     };
 
     $scope.likeThis = function() {
-        
+        // dunno
     }
 }]);
