@@ -21,7 +21,7 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     $scope.places = $firebase(dataRef);
 
     angular.extend($scope, {
-        status: "Hold on tight, loading feed...",
+        status: "Hold on tight, loading pinning cards to board...",
         loaded: 0,
         center: {
             lat: 51.293,
@@ -65,7 +65,7 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     $scope.content = "Just fill this bit out with the details for your business, place, organisation, church, charity or whatever it may be. So long as it is in Farnborough and relevant to the town, we want to know about it and so does the rest of the World!<br /><br />You don't need a profile to create an item for the Farnborough Guide but it should be something you would consider if you want to use this site often. We will review your entry and will invoice you accordingly - more details on our pricing can be found under the pricing section...";
     
     $scope.places.$on("loaded", function() {
-        $scope.status = "Enjoy exploring what your town has to offer, we are constantly updating our database";
+        $scope.status = "Watch this spot for live updates across the site!";
         $scope.loaded = 1;
     });
 
@@ -181,5 +181,45 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     $scope.updateDescription = function() {
         $scope.places.$save();
     }
+
+    $scope.checkName = function(data) {
+    // if (data !== 'awesome' && data !== 'error') {
+    //   return "Username should be `awesome` or `error`";
+    // }
+  };
+
+  $scope.saveUser = function() {
+    // // $scope.user already updated!
+    // return $http.post('/saveUser', $scope.user).error(function(err) {
+    //   if(err.field && err.msg) {
+    //     // err like {field: "name", msg: "Server-side error for this username!"} 
+    //     $scope.editableForm.$setError(err.field, err.msg);
+    //   } else { 
+    //     // unknown error
+    //     $scope.editableForm.$setError('name', 'Unknown error!');
+    //   }
+    // });
+    $scope.places.$add({
+            name: this.name,
+            description: this.description
+            // lat: $scope.marker.lat,
+            // lng: $scope.marker.lng,
+            // address: {
+            //     contact: this.contact,
+            //     number: this.number,
+            //     street: this.street,
+            //     postcode: this.postcode,
+            //     telephone: this.telephone,
+            //     fax: this.fax,
+            //     email: this.email
+            // }
+           
+
+            });
+
+        this.name = "";
+        this.description = "";
+
+  };
 
 }]);

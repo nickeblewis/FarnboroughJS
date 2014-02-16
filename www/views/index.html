@@ -7,14 +7,47 @@
           <div class="col-md-12 element place-card general">
           <div class="status-bar"><p>{{status}}</p> </div>
           <div class="item_description welcome-to-farnborough">
+<!--             <p>Welcome to something new, a new way of learning about what is happening in your own town, in real-time. Whatever you post here, will appear in an instant to whoever may be viewing FG right now! No matter what device they are viewing it with! Now how about that for innovation!</p>
+ -->            <p>Farnborough Guide is based on the classic idea of a pin board, to which anyone can add a card for a fee. Whenever something is added or updated, your view will automatically change. No need to refresh the page, it's instant! You can access FG from any internet powered device. Watch this space for more details on how it works, what you can get out of it and realise the power of real-time information about your town. We have plenty more features planned and we are excited!</p>
           </div>
         </div>
+        <form editable-form name="editableForm" onaftersave="saveUser()">
+        <div class="col-md-4 col-sm-6 element place-card general" >
+          <div class="hover_img new-card">
+            
+            <h1 editable-text="name" e-name="name" onbeforesave="checkName($data)" e-required>{{ name || 'New Card' }}</h1>
+          </div>
+          <div class="item_description">
+            <p class="content" editable-textarea="description" e-cols="30" e-rows="4" e-style="width: 100%; font-size: 1.0em;">
+              {{ description || 'Want to add something? Fill out this card. To begin, click on the edit button below...' }}
+            </p>
+            <div class="buttons">
+      <!-- button to show form -->
+      <button type="button" class="btn btn-default" ng-click="editableForm.$show()" ng-show="!editableForm.$visible">
+        Edit
+      </button>
+      <!-- buttons to submit / cancel form -->
+      <span ng-show="editableForm.$visible">
+        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+          Save
+        </button>
+        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+          Cancel
+        </button>
+      </span>
+    </div>
+          </div>
+
+        </div>
+
+      </form>
+
         <div ng-cloak class="col-md-4 col-sm-6 element place-card general" ng-repeat="(name, place) in places" ng-animate="'animate'">
           <div class="hover_img {{place.class}}">
             <h1><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></h1>
           </div>
           <div class="item_description">
-            <p class="content"  editable-textarea="place.description" e-cols="30" e-rows="5" e-style="width: 100%; font-size: 1.0em;" onaftersave="updateDescription()">
+            <p class="content"  editable-textarea="place.description" e-cols="30" e-rows="4" e-style="width: 100%; font-size: 1.0em;" onaftersave="updateDescription()">
               {{place.description || "empty"}}
              
             </p>
