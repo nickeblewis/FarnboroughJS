@@ -14,8 +14,9 @@
             <h1><a data-ng-href="#!/places/{{name}}">{{place.name}}</a></h1>
           </div>
           <div class="item_description">
-            <p class="content">
-              {{place.description}}
+            <p class="content"  editable-textarea="place.description" e-cols="30" e-rows="5" e-style="width: 100%; font-size: 1.0em;" onaftersave="updateDescription()">
+              {{place.description || "empty"}}
+             
             </p>
             <p class="meta">
               <a ng-click="place.likes = place.likes + 1" ng-show="place.likes > 0">{{place.likes}} likes</a>
@@ -24,7 +25,6 @@
         </div>
   </div>	
 </section>
-
-
+    
 
 

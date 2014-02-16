@@ -1,4 +1,4 @@
-angular.module('mean.places').controller('PlacesController', ['$scope', '$firebase', '$routeParams', '$location', 'Global', function ($scope, $firebase, $routeParams, $location, Global) {
+angular.module('mean.places').controller('PlacesController', ['$scope', '$firebase', '$routeParams', '$location', '$modal', 'Global', function ($scope, $firebase, $routeParams, $location, $modal, Global) {
     $scope.global = Global;
     var placesURL= "https://farnborough.firebaseio.com";
     
@@ -177,4 +177,9 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     $scope.likeThis = function() {
         // dunno
     }
+
+    $scope.updateDescription = function() {
+        $scope.places.$save();
+    }
+
 }]);

@@ -2,8 +2,10 @@
   "name": "farnboroughjs",
   "version": "0.0.0",
   "dependencies": {
+  	"angular-ui": "latest",
     "angular-leaflet": "~0.6.1",
     "angular-isotope": "latest",
-     "bootstrap": ">2.3.2"
+    "bootstrap": ">2.3.2",
+    "angular-xeditable": "~0.1.8"
   }
 }
