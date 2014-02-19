@@ -37,14 +37,19 @@ body {
 	font-size: 18px;
 	padding: 9px;
 	text-align: center;
+	border-radius: 10px;
 }
 
 .welcome-to-farnborough {
-	height: 260px;
+	/*height: 260px;*/
 	padding-bottom: 30px;
+
 }
-h1 {
-    text-align:center
+
+h1, h2 {
+    text-align:center;
+    /*font-size: 14px;
+    font-weight: bold;*/
 }
 
 ul.articles li:not(:last-child) {
@@ -70,4 +75,11 @@ ul.articles li:not(:last-child) {
 
 .scroller {
 	overflow: scroll;
+}
+
+.dashboard-box {
+	border: 2px dashed #ccc;
+	height: 100%;
+	/*margin: 2px;*/
+	border-radius: 10px;
 }
