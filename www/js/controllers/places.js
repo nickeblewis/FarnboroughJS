@@ -199,9 +199,12 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     //     $scope.editableForm.$setError('name', 'Unknown error!');
     //   }
     // });
+
+    var milliseconds = (new Date).getTime();
     $scope.places.$add({
             name: this.name,
-            description: this.description
+            description: this.description,
+            created: milliseconds
             // lat: $scope.marker.lat,
             // lng: $scope.marker.lng,
             // address: {
