@@ -821,6 +821,11 @@ h5 .intro_sections { color:#777; }
   padding-top: 0px; 
   border-top-right-radius: 10px;
 }
+
+.hover_img h2 {
+  text-transform: uppercase;
+}
+
 .hover_img:hover { position:relative; background-color:rgb(173, 160, 160);  }
 .portfolio_zoom{
   display: none;
