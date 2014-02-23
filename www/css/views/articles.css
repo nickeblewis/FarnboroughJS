@@ -33,10 +33,10 @@ body {
 
 .status-bar {
 	background-color: orange;
-	height: 50px;
-	font-size: 18px;
+	height: 60px;
+	font-size: 16px;
 	padding: 9px;
-	text-align: center;
+	/*text-align: center;*/
 	border-radius: 10px;
 }
 

@@ -21,7 +21,7 @@ angular.module('mean.places').controller('PlacesController', ['$scope', '$fireba
     $scope.places = $firebase(dataRef);
 
     angular.extend($scope, {
-        status: "Hold on tight, loading pinning cards to board...",
+        status: "Hold on tight, pinning cards to board...",
         loaded: 0,
         center: {
             lat: 51.293,
