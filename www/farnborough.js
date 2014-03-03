@@ -8,6 +8,10 @@ angular.module('place', ['ngRoute', 'firebase','xeditable'])
  
 .factory('Places', function($firebase, fbURL) {
   var ref = new Firebase(fbURL);
+  var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+    // TODO: What goes in here???
+  });
+
   return $firebase(ref);
 })
  
@@ -39,17 +43,20 @@ angular.module('place', ['ngRoute', 'firebase','xeditable'])
   });
 
   $scope.places.$on("child_changed", function(snapshot) {
+    // TODO: Not happy about the following line, I had to change it to this and not sure why?????!!!
     var placeName = snapshot.snapshot.value.name;
     $scope.status = placeName + " has been updated";
     // console.log(snapshot.snapshot.value.name);
   });
 
   $scope.places.$on("child_added", function(snapshot) {
+    // TODO: Not happy about the following line, I had to change it to this and not sure why?????!!!
       var placeName = snapshot.snapshot.value.name;
       $scope.status = placeName + " has been added";
   });
 
   $scope.places.$on("child_removed", function(snapshot) {
+    // TODO: Not happy about the following line, I had to change it to this and not sure why?????!!!
       var placeName = snapshot.snapshot.value.name;
       $scope.status = placeName + " has been removed";
   });
