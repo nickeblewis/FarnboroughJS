@@ -1,4 +1,5 @@
 angular.module('place', ['ngRoute', 'firebase','xeditable'])
+//angular.module('place', ['ngRoute', 'firebase','xeditable','iso.directives'])
  
 .run(function(editableOptions) {
   editableOptions.theme = 'bs3';
@@ -34,7 +35,15 @@ angular.module('place', ['ngRoute', 'firebase','xeditable'])
     });    
 })
 
-.controller('ListCtrl', function($scope, Places) {
+.controller('ListCtrl', function($scope, fbURL, Places) {
+
+  var ref = new Firebase(fbURL);
+  var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+    // TODO: What goes in here???
+  });
+
+  $scope.status = "Loading...";
+
   $scope.places = Places;
 
   $scope.places.$on("loaded", function() {
@@ -65,7 +74,6 @@ angular.module('place', ['ngRoute', 'firebase','xeditable'])
       $scope.places.$save();
       // $location.path('/');
     };
-
 })
  
 .controller('CreateCtrl', function($scope, $location, $timeout, Places) {
