@@ -1,3 +1,7 @@
+// TODO: Add some big and fancy comment block at the top of this code
+// TODO: errrr, testing,testing yeah
+
+// NOTE: iso.directives listed below is commented out as I had problems with this and the real-time nature of the system
 angular.module('place', ['ngRoute', 'firebase','xeditable'])
 //angular.module('place', ['ngRoute', 'firebase','xeditable','iso.directives'])
  
@@ -53,7 +57,7 @@ angular.module('place', ['ngRoute', 'firebase','xeditable'])
 
   $scope.places.$on("child_changed", function(snapshot) {
     // TODO: Not happy about the following line, I had to change it to this and not sure why?????!!!
-    var placeName = snapshot.snapshot.value.name;
+    var placeName = snapshot.val();
     $scope.status = placeName + " has been updated";
     // console.log(snapshot.snapshot.value.name);
   });
