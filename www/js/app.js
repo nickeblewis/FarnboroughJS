@@ -1,10 +1,11 @@
-	// TODO: add this back? 'iso.directives'
-	window.app = angular.module('mean', ['firebase','ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles','mean.places','leaflet-directive','contenteditable','xeditable']);
+angular.module('fg', ['ngRoute', 'firebase','xeditable'])
+//angular.module('place', ['ngRoute', 'firebase','xeditable','iso.directives'])
+// angular.module('mean', ['firebase','ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles','mean.places','leaflet-directive','contenteditable','xeditable']);
 
-angular.module('mean.system', []);
-angular.module('mean.articles', []);
-angular.module('mean.places', []);
+	.value('fbAuthToken', 'b9b3dbbcf69fdad7365f3fb61ad21927')
+	.value('fbURL', 'https://farnborough.firebaseio.com/places/')
+ 
+	.run(function(editableOptions) {
+		editableOptions.theme = 'bs3';
+	});
 
-app.run(function(editableOptions) {
-  editableOptions.theme = 'bs3';
-});

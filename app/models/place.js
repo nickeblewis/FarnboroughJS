@@ -28,22 +28,22 @@ var PlaceSchema = new Schema({
         type: String,
         default: 'https://lh4.googleusercontent.com/NTaSzU9S8mwX_OhAZlMmwmXhTvukAQKB_MNYqAjNQgE=w294-h194-p-no'
     },
-    address: {
-        contact: String,
-        default: '',
-        number: Number,
-        default: '',
-        street: String,
-        default: '',
-        postcode: String,
-        default: '',
-        telephone: String,
-        default: '',
-        fax: String,
-        default: '',
-        email: String,
-        default: ''    
-    },
+    // address: {
+    //     contact: String,
+    //     default: '',
+    //     number: Number,
+    //     default: '',
+    //     street: String,
+    //     default: '',
+    //     postcode: String,
+    //     default: '',
+    //     telephone: String,
+    //     default: '',
+    //     fax: String,
+    //     default: '',
+    //     email: String,
+    //     default: ''    
+    // },
     website: {
         title: String,
         url: String

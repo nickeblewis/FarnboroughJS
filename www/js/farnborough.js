@@ -24,15 +24,15 @@ angular.module('place', ['ngRoute', 'firebase','xeditable'])
   $routeProvider
     .when('/', {
       controller:'ListCtrl',
-      templateUrl:'list.html'
+      templateUrl:'views/list.html'
     })
     .when('/edit/:placeId', {
       controller:'EditCtrl',
-      templateUrl:'detail.html'
+      templateUrl:'views/detail.html'
     })
     .when('/new', {
       controller:'CreateCtrl',
-      templateUrl:'detail.html'
+      templateUrl:'views/detail.html'
     })
     .otherwise({
       redirectTo:'/'

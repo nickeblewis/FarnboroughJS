@@ -1,4 +1,4 @@
-angular.module('mean').directive( 'editInPlace', function() {
+angular.module('fg').directive( 'editInPlace', function() {
   return {
     restrict: 'E',
     scope: { value: '=' },
