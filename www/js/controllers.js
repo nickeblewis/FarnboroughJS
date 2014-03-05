@@ -6,10 +6,10 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents) {
 
   $scope.places = fbRequestUrl;
 
-  // fbEvents.$on("loaded", function() {
-  //   $scope.status = "Watch this spot for live updates across the site!";
-  //   $scope.loaded = 1;
-  // });
+  $scope.places.$on("loaded", function() {
+        $scope.status = "Watch this spot for live updates across the site!";
+        $scope.loaded = 1;
+    });
 
   fbEvents.on("child_changed", function(snapshot) {    
     var placeName = snapshot.val().name;
@@ -40,8 +40,51 @@ fg.controller('CreateCtrl', function($scope, $location, $timeout, fbRequestUrl) 
     });
   };
 });
- 
-fg.controller('EditCtrl',
+
+fg.controller('ShowCtrl', function($scope, $location, $routeParams, $firebase, fbURL, fbRequestUrl, fbEvents) {
+  var placeUrl = fbURL + $routeParams.placeId;
+  $scope.place = $firebase(new Firebase(placeUrl));
+  $scope.map = {
+    center: {
+      latitude: 51.293,
+      longitude: -0.75
+    },
+    zoom: 18
+  };
+
+  $scope.searchLocationMarker = {
+    coords: {
+      latitude: 51.293,
+      longitude: -0.75
+    }
+    // options: { draggable: true },
+    // events: {
+    //     dragend: function (marker, eventName, args) {
+    //         $log.log('marker dragend');
+    //         $log.log(marker.getPosition().lat());
+    //         $log.log(marker.getPosition().lng());
+    //     }
+    // }
+  };
+   
+  $scope.place.$on('loaded', function(snapshot) {
+    $scope.map.center.latitude = snapshot.lat;
+    $scope.map.center.longitude = snapshot.lng;
+    $scope.searchLocationMarker.coords.latitude = snapshot.lat;
+    $scope.searchLocationMarker.coords.longitude = snapshot.lng;    
+  });
+  // $scope.destroy = function() {
+  //   $scope.place.$remove();
+  //   $location.path('/');
+  // };
+
+  // $scope.save = function() {
+  //   $scope.place.$save();
+  //   $location.path('/');
+  // };
+});
+
+fg.controller('EditCtrl', 
   function($scope, $location, $routeParams, $firebase, fbURL) {
     var placeUrl = fbURL + $routeParams.placeId;
     $scope.place = $firebase(new Firebase(placeUrl));

@@ -1,0 +1,42 @@
+<section ng-cloak>
+	<div class="row">
+		
+		<div class="col-md-12">
+			<div class="col-md-6">
+				<google-map center="map.center" zoom="map.zoom">
+			<marker coords="searchLocationMarker.coords"></marker>
+			</google-map>
+			</div>
+			<div class="col-md-6">
+				<div class="place-info">
+<!-- 				<span>{{place.created | date:'medium'}}</span> /
+				<span>{{place.user.name}}</span> -->
+				<h2>{{place.name}}</h2>
+				<div data-ng-bind-html-unsafe="place.details"></div>
+
+				<div>{{place.address.contact}}</div>
+
+				<h2>Address</h2>
+				<div>{{place.address.number}}</div>
+				<div>{{place.address.street}}</div>
+				<div>{{place.address.postcode}}</div>
+
+				<h2>Phone/Fax</h2>
+				<div>{{place.address.telephone}}</div>
+				<div>{{place.address.fax}}</div>
+
+				<h2>Email</h2>
+				<div><a href="mailto:{{place.address.email}}">{{place.address.email}}</a></div>
+				<!--<div><a href="{{place.website.url}}">{{place.website.title}}</a></div>-->
+				
+				<div class="control-group">
+					<div class="controls">
+						<a class="btn" data-ng-show="global.user._id == place.user._id" href="/#!/places/{{place.name}}/edit">edit</a>
+					</div>
+				</div>
+			</div>
+			</div>
+			
+		</div>
+	</div>
+</section>

@@ -2,10 +2,12 @@
   "name": "farnboroughjs",
   "version": "0.0.0",
   "dependencies": {
-  	"angular-ui": "latest",
+    "angular-ui": "latest",
     "angular-leaflet": "~0.6.1",
     "angular-isotope": "latest",
     "bootstrap": ">2.3.2",
-    "angular-xeditable": "~0.1.8"
+    "angular-xeditable": "~0.1.8",
+    "angular-google-maps": "~1.0.15",
+    "underscore": "~1.6.0"
   }
 }

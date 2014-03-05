@@ -13,6 +13,10 @@ angular.module('fg')
         controller:'CreateCtrl',
         templateUrl:'views/detail.html'
       })
+      .when('/show/:placeId', {
+        controller:'ShowCtrl',
+        templateUrl:'views/show.html'
+      })
       .otherwise({
         redirectTo:'/'
       });    

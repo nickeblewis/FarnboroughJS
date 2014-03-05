@@ -1773,3 +1773,9 @@ ul.articles li:not(:last-child) {
   /*margin: 2px;*/
   border-radius: 10px;
 }
+
+.angular-google-map-container { height: 800px;
+
+margin-bottom: 30px;
+border: 10px #fff solid;
+box-shadow: 0 0 5px #ccc; }

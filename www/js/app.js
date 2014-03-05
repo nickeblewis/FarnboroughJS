@@ -1,4 +1,4 @@
-angular.module('fg', ['ngRoute', 'firebase','xeditable'])
+angular.module('fg', ['ngRoute', 'firebase','xeditable','google-maps'])
 //angular.module('place', ['ngRoute', 'firebase','xeditable','iso.directives'])
 // angular.module('mean', ['firebase','ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles','mean.places','leaflet-directive','contenteditable','xeditable']);
 

@@ -1,0 +1,8 @@
+{
+  "name": "angular-google-maps",
+  "version": "1.0.15",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nlaplante/angular-google-maps.git"
+  }
+}
