@@ -17,6 +17,14 @@ angular.module('fg')
         controller:'ShowCtrl',
         templateUrl:'views/show.html'
       })
+      .when('/signup', {
+        controller:'SignupCrl',
+        templateUrl:'views/signup.html'
+      })
+      .when('/signin', {
+        controller:'SigninCrl',
+        templateUrl:'views/signin.html'
+      })
       .otherwise({
         redirectTo:'/'
       });    
