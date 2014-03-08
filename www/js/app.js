@@ -4,6 +4,7 @@ angular.module('fg', ['ngRoute', 'firebase','xeditable','google-maps'])
 
 	.value('fbAuthToken', 'b9b3dbbcf69fdad7365f3fb61ad21927')
 	.value('fbURL', 'https://farnborough.firebaseio.com/places/')
+	.value('fbAUTH', 'https://farnborough.firebaseio.com')
  
 	.run(function(editableOptions) {
 		editableOptions.theme = 'bs3';

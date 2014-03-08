@@ -18,11 +18,11 @@ angular.module('fg')
         templateUrl:'views/show.html'
       })
       .when('/signup', {
-        controller:'SignupCrl',
+        controller:'SignupCtrl',
         templateUrl:'views/signup.html'
       })
       .when('/signin', {
-        controller:'SigninCrl',
+        controller:'SigninCtrl',
         templateUrl:'views/signin.html'
       })
       .otherwise({

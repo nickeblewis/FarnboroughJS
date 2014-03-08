@@ -1,6 +1,18 @@
 var fg = angular.module('fg');
 
-fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents) {
+fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
+
+  var ref = new Firebase(fbAUTH);
+  var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+    if (error) {
+        // an error ocurred during login
+        console.log(error);
+      } else if (user) {
+        console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+      } else {
+        // User has logged out
+      }  
+    });
 
   $scope.status = "Loading...";
 
@@ -97,5 +109,55 @@ fg.controller('EditCtrl',
     $scope.save = function() {
       $scope.place.$save();
       $location.path('/');
+    };
+});
+
+fg.controller('SignupCtrl', 
+  function($scope, $location, $routeParams, $firebase, fbAUTH) {
+
+  var ref = new Firebase(fbAUTH);
+  var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+    if (error) {
+        // an error ocurred during login
+        console.log(error);
+      } else if (user) {
+        console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+      } else {
+        // User has logged out
+      }  
+    });
+  
+  $scope.signup = function() {
+    auth.createUser($scope.user.email, $scope.user.password, function(error, user) {
+      if (!error) {
+        $scope.message = "one";
+      } else {
+        $scope.message = "Two";
+      }
+    });
+  };
+});
+
+fg.controller('SigninCtrl', 
+  function($scope, $location, $routeParams, $firebase, fbAUTH) {
+  
+    var ref = new Firebase(fbAUTH);
+    var auth = new FirebaseSimpleLogin(ref, function(error, user) {
+      if (error) {
+        // an error ocurred during login
+        console.log(error);
+      } else if (user) {
+        console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+      } else {
+        // User has logged out
+      }
+
+    });
+  
+    $scope.signin = function() {
+      auth.login('password', {
+        email: $scope.user.email,
+        password: $scope.user.password
+      });
     };
 });
