@@ -3,10 +3,14 @@
     <div class="status-bar">
       <div class="col-sm-2">
         <a href="#/new">
-        <button type="button" class="btn btn-default">          
+        <button ng-show="isAuthorised()" type="button" class="btn btn-default">          
           <span class="glyphicon glyphicon-plus"></span>NEW CARD
         </button>
+        
         </a>
+        <button ng-show="isAuthorised()" ng-click="logOut()" type="button" class="btn btn-default">          
+          <span class="glyphicon glyphicon-plus"></span>LOGOUT
+        </button>
       </div>
       <div class="col-sm-4">
         <input type="text" ng-model="search" class="form-control" placeholder="Search">
@@ -26,7 +30,10 @@
         </div>
         <div class="item_description">
           <img src="http://placehold.it/150x150" ng-if="place.pic != null" />
-          <p class="content"  editable-textarea="place.description" e-cols="17" e-rows="6" e-style="width: 100%; font-size: 14px;" onaftersave="save()">
+          <p class="content"  ng-if="isAuthorised()" editable-textarea="place.description" e-cols="17" e-rows="6" e-style="width: 100%; font-size: 14px;" onaftersave="save()">
+            {{place.description || "empty"}}         
+          </p>
+          <p class="content"  ng-if="!isAuthorised()">
             {{place.description || "empty"}}         
           </p>
           <p class="meta">

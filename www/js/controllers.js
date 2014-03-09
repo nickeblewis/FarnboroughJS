@@ -2,15 +2,20 @@ var fg = angular.module('fg');
 
 fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
 
+  var isAuthorised = false;
+
   var ref = new Firebase(fbAUTH);
   var auth = new FirebaseSimpleLogin(ref, function(error, user) {
     if (error) {
         // an error ocurred during login
         console.log(error);
       } else if (user) {
+        // You are logged in
         console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+        isAuthorised = true;
       } else {
         // User has logged out
+        console.log('User has logged out');
       }  
     });
 
@@ -38,6 +43,14 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
       var placeName = snapshot.val().name;
       $scope.status = placeName + " has been removed";
   });
+
+  $scope.isAuthorised = function() {
+    return isAuthorised;
+  };
+
+  $scope.logOut = function() {
+    auth.logout();
+  };
 
   $scope.save = function() {
       $scope.places.$save();
