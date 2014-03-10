@@ -19,6 +19,8 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
       }  
     });
 
+  $scope.isAuthorised = false;
+
   $scope.status = "Loading...";
 
   $scope.places = fbRequestUrl;
@@ -44,14 +46,18 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
       $scope.status = placeName + " has been removed";
   });
 
-  $scope.isAuthorised = function() {
-    return isAuthorised;
-  };
+  // $scope.isAuthorised = function() {
+  //   return isAuthorised;
+  // };
 
   $scope.logOut = function() {
-    auth.logout();
+    $scope.isAuthorised = false;
+    //auth.logout();
   };
 
+  $scope.logIn = function() {
+    $scope.isAuthorised = true;
+  }
   $scope.save = function() {
       $scope.places.$save();
       // $location.path('/');
@@ -77,11 +83,11 @@ fg.controller('ShowCtrl', function($scope, $location, $routeParams, $firebase, f
     zoom: 18
   };
 
-  $scope.searchLocationMarker = {
-    coords: {
-      latitude: 51.293,
-      longitude: -0.75
-    }
+  // $scope.searchLocationMarker = {
+  //   coords: {
+  //     latitude: 51.293,
+  //     longitude: -0.75
+  //   }
     // options: { draggable: true },
     // events: {
     //     dragend: function (marker, eventName, args) {
@@ -90,14 +96,14 @@ fg.controller('ShowCtrl', function($scope, $location, $routeParams, $firebase, f
     //         $log.log(marker.getPosition().lng());
     //     }
     // }
-  };
+  // };
    
-  $scope.place.$on('loaded', function(snapshot) {
-    $scope.map.center.latitude = snapshot.lat;
-    $scope.map.center.longitude = snapshot.lng;
-    $scope.searchLocationMarker.coords.latitude = snapshot.lat;
-    $scope.searchLocationMarker.coords.longitude = snapshot.lng;    
-  });
+  // $scope.place.$on('loaded', function(snapshot) {
+  //   $scope.map.center.latitude = snapshot.lat;
+  //   $scope.map.center.longitude = snapshot.lng;
+  //   $scope.searchLocationMarker.coords.latitude = snapshot.lat;
+  //   $scope.searchLocationMarker.coords.longitude = snapshot.lng;    
+  // });
   // $scope.destroy = function() {
   //   $scope.place.$remove();
   //   $location.path('/');
@@ -107,6 +113,19 @@ fg.controller('ShowCtrl', function($scope, $location, $routeParams, $firebase, f
   //   $scope.place.$save();
   //   $location.path('/');
   // };
+});
+
+fg.controller('MapCtrl', function($scope, $location, $routeParams, $firebase, fbURL, fbRequestUrl, fbEvents) {
+  $scope.places = fbRequestUrl;
+  $scope.map = {
+    center: {
+      latitude: 51.293,
+      longitude: -0.75
+    },
+    zoom: 12
+  };
+
+
 });
 
 fg.controller('EditCtrl', 

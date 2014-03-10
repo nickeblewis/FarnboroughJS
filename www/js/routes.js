@@ -5,6 +5,10 @@ angular.module('fg')
         controller:'ListCtrl',
         templateUrl:'views/list.html'
       })
+      .when('/map', {
+        controller:'MapCtrl',
+        templateUrl:'views/map.html'
+      })
       .when('/edit/:placeId', {
         controller:'EditCtrl',
         templateUrl:'views/detail.html'

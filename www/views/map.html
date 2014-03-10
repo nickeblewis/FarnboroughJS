@@ -1,0 +1,34 @@
+<div class="col-md-12 place-card element general">
+	<div class="status-bar">
+        
+  	<button ng-show="!isAuthorised" ng-click="logIn()" type="button" class="btn btn-default">          
+    	<span class="glyphicon glyphicon-plus"></span>EDIT
+    </button>           
+    <!-- <a class="btn" href="/#!/places/{{place.name}}/edit">edit</a>        -->
+  </div>          
+</div>
+
+<div class="row" ng-cloak>
+  <div class="col-md-12 place-card element general">
+    <div class="isotope" isotope-container>
+			
+			<!-- CARD: Map -->
+			<div class="col-md-12 col-sm-6 element place-card general" isotope-item>
+				<div class="hover_img">
+			  	<h2>MAP</h2>
+			  </div>
+			  <div class="item_map">
+			  	<img src="http://placehold.it/150x150" ng-if="place.pic != null" />          
+			  	<p class="content">
+			    	<google-map center="map.center" zoom="map.zoom">
+							<marker ng-repeat="place in places" coords="place.map"></marker>
+						</google-map>
+			    </p>          
+			    <p class="meta"></p>
+			  </div>
+			</div>
+			<!-- /CARD: Map -->					
+
+		</div>		
+	</div>
+</div>
