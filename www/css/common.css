@@ -867,6 +867,8 @@ h5 .intro_sections { color:#777; }
   font-size:1.4em;
   /*color:#999;*/
   height: 250px;
+  overflow-y: auto;
+  overflow-x: none;
 }
 
 .item_map {
@@ -881,8 +883,6 @@ h5 .intro_sections { color:#777; }
   font-size:1.4em;
   /*color:#999;*/
   height: 250px;
-  overflow-y: scroll;
-  overflow-x: none;
 }
 
 .feed-item {
