@@ -8,7 +8,7 @@
   </div>          
 </div>
 
-<div class="row" ng-cloak>
+<div class="row">
   <div class="col-md-12 place-card element general">
     <div class="isotope" isotope-container>
 			
@@ -20,9 +20,12 @@
 			  <div class="item_description">
 			  	<img src="http://placehold.it/150x150" ng-if="place.pic != null" />          
 			  	<p class="content">
-			    	<google-map center="map.center" zoom="map.zoom">
-							<marker coords="place.map"></marker>
-						</google-map>
+			    	<!-- <google-map center="map.center" zoom="map.zoom">
+							<marker coords="map.marker">
+								<window>{{place.name}}</window>
+							</marker>
+						</google-map> -->
+						<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center={{place.map.latitude}},{{place.map.longitude}}&amp;zoom=14&amp;size=700x200&amp;markers={{place.map.latitude}},{{place.map.longitude}}&amp;sensor=false" alt="Greenwich, England" alt="">
 			    </p>          
 			    <p class="meta"></p>
 			  </div>
@@ -45,7 +48,7 @@
 						{{place.address.postcode}},
 						<!-- <h2>Phone/Fax</h2> -->
 						Tel: {{place.address.telephone}},
-						Fax: {{place.address.fax}}</p>
+						Fax: {{place.address.fax}}</p>{{place.map.latitude}} {{place.map.longitude}}
 						<!-- <h2>Email</h2> -->
 						<p><a href="mailto:{{place.address.email}}">{{place.address.email}}</a></p>
 			    <!-- </p>           -->

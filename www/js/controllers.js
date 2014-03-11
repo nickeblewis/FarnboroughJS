@@ -79,13 +79,26 @@ fg.controller('CreateCtrl', function($scope, $location, $timeout, fbRequestUrl) 
 fg.controller('ShowCtrl', function($scope, $location, $routeParams, $firebase, fbURL, fbRequestUrl, fbEvents) {
   var placeUrl = fbURL + $routeParams.placeId;
   $scope.place = $firebase(new Firebase(placeUrl));
-  $scope.map = {
-    center: {
-      latitude: 51.293,
-      longitude: -0.75
-    },
-    zoom: 18
-  };
+
+  
+  // $scope.map = {
+  //   center: {
+  //     latitude: 51.293,
+  //     longitude: -0.75
+  //   },
+  //   zoom: 16,
+  //   marker: {
+  //     latitude: 51.293,
+  //     longitude: -0.75
+  //   }
+  // };
+
+  // $scope.place.$on('loaded', function(snapshot) {
+  //   $scope.map.marker.latitude = snapshot.map.latitude;
+  //   $scope.map.marker.longitude = snapshot.map.longitude;
+  //   $scope.map.center.latitude = snapshot.map.latitude;
+  //   $scope.map.center.longitude = snapshot.map.longitude;
+  // });
 
   // $scope.searchLocationMarker = {
   //   coords: {

@@ -1798,7 +1798,8 @@ ul.articles li:not(:last-child) {
 }
 
 .angular-google-map-container { 
-  height: 640px;
+  height: 200px;
+  width: 200px;
   /*margin-bottom: 30px;
   border: 10px #fff solid;
   box-shadow: 0 0 5px #ccc; */
