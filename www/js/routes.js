@@ -9,6 +9,10 @@ angular.module('fg')
         controller:'MapCtrl',
         templateUrl:'views/map.html'
       })
+      .when('/feed', {
+        controller:'FeedCtrl',
+        templateUrl:'views/feed.html'
+      })
       .when('/edit/:placeId', {
         controller:'EditCtrl',
         templateUrl:'views/detail.html'

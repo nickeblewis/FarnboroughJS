@@ -124,8 +124,11 @@ fg.controller('MapCtrl', function($scope, $location, $routeParams, $firebase, fb
     },
     zoom: 12
   };
+});
 
-
+fg.controller('FeedCtrl', function($scope, $location, $routeParams, $firebase, fbURL, fbRequestUrl, fbEvents) {
+  $scope.places = fbRequestUrl;
+  
 });
 
 fg.controller('EditCtrl', 
