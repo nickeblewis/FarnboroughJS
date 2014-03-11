@@ -34,7 +34,7 @@
 
       <!-- CARD: Newcomers card -->
       <!-- TODO: Hide this once it has been seen, how? not sure! -->
-      <div class="col-md-3 col-sm-6 element place-card general" isotope-item>
+      <div ng-show="isAuthorised" class="col-md-3 col-sm-6 element place-card general" isotope-item>
         <div class="hover_img">
           <h2>WELCOME</h2>
         </div>
@@ -43,12 +43,15 @@
             Farnborough Guide is a new kind of local information board that makes use of the latest web technology. 
             Think of it as being like a massive pin board, much like those you see in more traditional shops. You pin cards to the board. 
           </p>   
-          <div class="content">
+          <p class="content">
             A card can be anything from a business card to details of a forthcoming event. However this is no ordinary board for new information appears right before your very eyes. 
-          </div>   
-          <div class="content">
+          </p>   
+          <p class="content">
             Its almost magical! A great new way of promoting what you offer to the local people! It is very social too, as you will discover! Take a look around!
-          </div>    
+          </p>  
+          <p class="content">You are welcome to spend time here on FG browsing what is on offer in your local area but to get 
+            even more out of this service, we recommend that you register. Registration is FREE.</p> 
+            <p class="content">To become an advertiser on FG, you can upgrade any time from just £100 per annum.</p>  
         </div>
       </div>
       <!-- /CARD: Newcomers card -->
@@ -69,40 +72,7 @@
       </div>
       <!-- /CARD: Whats going on card -->
 
-      <!-- CARD: Registration or login -->
-      <div ng-show="!isAuthorised" class="col-md-6 col-sm-6 element place-card general" isotope-item>
-        <div class="hover_img">
-          <h2>Sign in</h2>
-        </div>
-        <div class="item_description">
-          <div class="col-md-6">
-            <p class="content">You are welcome to spend time here on FG browsing what is on offer in your local area but to get 
-            even more out of this service, we recommend that you register. Registration is FREE.</p> 
-            <p class="content">To become an advertiser on FG, you can upgrade any time from just £100 per annum.</p>
-          </div>
-          <div class="col-md-6"><form name="myForm">   
-              <div class="control-group">
-                <label for="email" class="control-label">email</label>
-                <div class="controls">
-                  <input id="email" type="text" name="email" ng-model="user.email" placeholder="email">
-                </div>
-              </div>
-              <div class="control-group">
-                <label for="password" class="control-label">Password</label>
-                <div class="controls">
-                  <input id="password" type="password" name="password" ng-model="user.password" placeholder="Password">
-                </div>
-              </div>
-              <div class="form-actions">
-                <button ng-click="logIn()" ng-disabled="myForm.$invalid" class="btn btn-primary">Login</button>
-              </div>
-            </form></div>
-         
-          
-         
-        </div>
-      </div>
-      <!-- /CARD: Registration or login -->
+     
 
       <!-- CARD: Standard -->
       <!-- TODO: col-md-{{place.width}} -->
