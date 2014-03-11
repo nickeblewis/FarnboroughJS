@@ -39,8 +39,8 @@
 			  <div class="item_description">
 			  	<img src="http://placehold.it/150x150" ng-if="place.pic != null" />          
 			  	<!-- <p class="content"> -->
-						<p>{{place.name}}</p>
-						<!-- <div data-ng-bind-html-unsafe="place.details"></div> -->
+						<h3>{{place.name}}</h3>
+						<div ng-bind-html="place.details"></div>
 						<p>Contact: {{place.address.contact}}</p>
 						<!-- <h2>Address</h2> -->
 						<p>{{place.address.number}},
