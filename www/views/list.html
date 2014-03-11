@@ -1,17 +1,25 @@
 <div class="row">
   <div class="col-md-12 place-card element general">
     <div class="status-bar">
+        
+      <span ng-show="isAuthorised">
         <a href="#/new">
-          <button ng-show="isAuthorised" type="button" class="btn btn-default">          
+          <button type="button" class="btn btn-default">          
             <span class="glyphicon glyphicon-plus"></span>NEW CARD
           </button>        
         </a>
-        <button ng-show="isAuthorised" ng-click="logOut()" type="button" class="btn btn-default">          
+        <button ng-click="logOut()" type="button" class="btn btn-default">          
           <span class="glyphicon glyphicon-plus"></span>LOGOUT
-        </button>
-        <button ng-show="!isAuthorised" ng-click="logIn()" type="button" class="btn btn-default">          
-          <span class="glyphicon glyphicon-plus"></span>LOGIN
-        </button>                  
+        </button>  
+      </span>          
+      <span ng-show="!isAuthorised" class="form-inline">
+        <input type="text" class="form-control" placeholder="email">
+        <input type="password" class="form-control" placeholder="password">
+        <button ng-click="logIn()" type="button" class="btn btn-default">          
+          <span class="glyphicon glyphicon-plus"></span>LOGIN/REGISTER
+        </button>          
+      </span>      
+      <span>{{authmessage}}</span>                  
     </div>          
   </div>
   <div class="col-md-12 place-card element general">

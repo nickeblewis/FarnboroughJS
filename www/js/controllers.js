@@ -21,6 +21,8 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
 
   $scope.isAuthorised = false;
 
+  $scope.authmessage = "";
+
   $scope.status = "Loading...";
 
   $scope.places = fbRequestUrl;
@@ -52,11 +54,13 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
 
   $scope.logOut = function() {
     $scope.isAuthorised = false;
+    $scope.authmessage = "You have successfully logged out";
     //auth.logout();
   };
 
   $scope.logIn = function() {
     $scope.isAuthorised = true;
+    $scope.authmessage = "You have successfully logged in";
   }
   $scope.save = function() {
       $scope.places.$save();
