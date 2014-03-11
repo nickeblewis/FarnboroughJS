@@ -22,9 +22,14 @@
       <span>{{authmessage}}</span>                  
     </div>          
   </div>
-  <div class="col-md-12 place-card element general">
+  <div class="col-md-6 place-card element general">
     <div class="status-bar">      
       <input type="text" ng-model="search" class="form-control" placeholder="Search">                        
+    </div>          
+  </div>
+  <div class="col-md-6 place-card element general">
+    <div class="status-bar">      
+      <strong>{{status}}</strong>
     </div>          
   </div>
 </div>
@@ -56,21 +61,7 @@
       </div>
       <!-- /CARD: Newcomers card -->
 
-      <!-- CARD: Whats going on card -->
-      <div class="col-md-3 col-sm-6 element place-card general" isotope-item>
-        <div class="hover_img">
-          <h2>LATEST UPDATES</h2>
-        </div>
-        <div class="item_description">
-          <img src="http://placehold.it/150x150" ng-if="place.pic != null" />          
-          <p class="content">
-            {{status}}
-          </p>          
-          <p class="meta">
-          </p>
-        </div>
-      </div>
-      <!-- /CARD: Whats going on card -->
+     
 
      
 
