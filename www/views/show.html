@@ -8,12 +8,12 @@
   </div>          
 </div>
 
-<div class="row">
+<div class="row" ng-cloak>
   <div class="col-md-12 place-card element general">
     <div class="isotope" isotope-container>
 			
 			<!-- CARD: Map -->
-			<div class="col-md-6 col-sm-6 element place-card general" isotope-item>
+			<div class="col-md-3 col-sm-63 element place-card general" isotope-item>
 				<div class="hover_img">
 			  	<h2>MAP</h2>
 			  </div>
@@ -25,7 +25,7 @@
 								<window>{{place.name}}</window>
 							</marker>
 						</google-map> -->
-						<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center={{place.map.latitude}},{{place.map.longitude}}&amp;zoom=14&amp;size=700x200&amp;markers={{place.map.latitude}},{{place.map.longitude}}&amp;sensor=false" alt="Greenwich, England" alt="">
+						<img border="0" src="//maps.googleapis.com/maps/api/staticmap?center={{place.map.latitude}},{{place.map.longitude}}&amp;zoom=14&amp;size=400x200&amp;markers={{place.map.latitude}},{{place.map.longitude}}&amp;sensor=false" alt="Greenwich, England" alt="">
 			    </p>          
 			    <p class="meta"></p>
 			  </div>
@@ -34,13 +34,24 @@
 			
 			<div class="col-md-3 col-sm-6 element place-card general" isotope-item>
 				<div class="hover_img">
-			  	<h2>DETAILS</h2>
+			  	<h2>{{place.name}}</h2>
 			  </div>
 			  <div class="item_description">
 			  	<img src="http://placehold.it/150x150" ng-if="place.pic != null" />          
 			  	<!-- <p class="content"> -->
-						<h3>{{place.name}}</h3>
 						<div ng-bind-html="place.details"></div>
+			    <!-- </p>           -->
+			    <p class="meta"></p>
+			  </div>
+			</div>
+
+			<div class="col-md-3 col-sm-6 element place-card general" isotope-item>
+				<div class="hover_img">
+			  	<h2>INFO</h2>
+			  </div>
+			  <div class="item_description">
+			  	<img src="http://placehold.it/150x150" ng-if="place.pic != null" />          
+			  	<!-- <p class="content"> -->
 						<p>Contact: {{place.address.contact}}</p>
 						<!-- <h2>Address</h2> -->
 						<p>{{place.address.number}},
