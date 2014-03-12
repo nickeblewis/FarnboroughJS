@@ -22,8 +22,8 @@ angular.module('fg')
         templateUrl:'views/detail.html'
       })
       .when('/show/:placeId', {
-        controller:'ShowCtrl',
-        templateUrl:'views/show.html'
+        controller:'EditCtrl',
+        templateUrl:'views/detail.html'
       })
       .when('/signup', {
         controller:'SignupCtrl',

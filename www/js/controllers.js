@@ -24,18 +24,20 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
   $scope.authmessage = "";
 
   $scope.status = "Loading...";
-
+ 
   $scope.places = fbRequestUrl;
 
   $scope.places.$on("loaded", function() {
         $scope.status = "Watch this spot for live updates across the site!";
         $scope.loaded = 1;
+        // $('.isotope').isotope();
     });
 
   fbEvents.on("child_changed", function(snapshot) {    
     var placeName = snapshot.val().name;
     $scope.status = placeName + " has been updated";
     // console.log(snapshot.snapshot.value.name);
+    
   });
 
   fbEvents.on("child_added", function(snapshot) {    
@@ -63,6 +65,7 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
     $scope.authmessage = "You have successfully logged in";
   }
   $scope.save = function() {
+
       $scope.places.$save();
       // $location.path('/');
     };
@@ -70,6 +73,7 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
  
 fg.controller('CreateCtrl', function($scope, $location, $timeout, fbRequestUrl) {
   $scope.save = function() {
+    $scope.place.updated = (new Date).getTime();
     fbRequestUrl.$add($scope.place, function() {
       $timeout(function() { $location.path('/'); });
     });
@@ -159,6 +163,7 @@ fg.controller('EditCtrl',
     };
  
     $scope.save = function() {
+      $scope.place.updated = (new Date).getTime();
       $scope.place.$save();
       $location.path('/');
     };
