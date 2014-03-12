@@ -30,7 +30,6 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
   $scope.places.$on("loaded", function() {
         $scope.status = "Watch this spot for live updates across the site!";
         $scope.loaded = 1;
-        // $('.isotope').isotope();
     });
 
   fbEvents.on("child_changed", function(snapshot) {    
@@ -54,6 +53,11 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
   //   return isAuthorised;
   // };
 
+  $scope.modalShown = false;
+  $scope.toggleModal = function() {
+    $scope.modalShown = !$scope.modalShown;
+  };
+  
   $scope.logOut = function() {
     $scope.isAuthorised = false;
     $scope.authmessage = "You have successfully logged out";
@@ -218,3 +222,10 @@ fg.controller('SigninCtrl',
       });
     };
 });
+
+fg.controller('MyCtrl', ['$scope', function($scope) {
+  $scope.modalShown = false;
+  $scope.toggleModal = function() {
+    $scope.modalShown = !$scope.modalShown;
+  };
+}]);
