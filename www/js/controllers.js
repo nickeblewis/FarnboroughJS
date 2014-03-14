@@ -67,12 +67,16 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
   $scope.logIn = function() {
     $scope.isAuthorised = true;
     $scope.authmessage = "You have successfully logged in";
-  }
+  };
+
   $scope.save = function() {
 
       $scope.places.$save();
       // $location.path('/');
     };
+  $scope.timeAgo = function(ms) {
+    return moment(ms).fromNow();
+  };
 });
  
 fg.controller('CreateCtrl', function($scope, $location, $timeout, fbRequestUrl) {
