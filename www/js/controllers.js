@@ -20,40 +20,46 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
     });
 
   $scope.isAuthorised = false;
-
   $scope.authmessage = "";
-
   $scope.status = "Loading...";
- 
   $scope.places = fbRequestUrl;
 
+  $scope.$watch('places', function() {
+    console.log('Places has updated ');
+    // if($scope.loaded === 1)
+    //   $('.isotope').isotope();
+  });
+
   $scope.places.$on("loaded", function() {
-        $scope.status = "Watch this spot for live updates across the site!";
-        $scope.loaded = 1;
-    });
+      $scope.status = "Watch this spot for live updates across the site!";
+      $scope.loaded = 1;
+      $scope.$emit('iso-init');
+  });
 
   fbEvents.on("child_changed", function(snapshot) {    
     var placeName = snapshot.val().name;
-    $scope.status = placeName + " has been updated";
-    // console.log(snapshot.snapshot.value.name);
-    
+    $scope.status = placeName + " has been updated";    
+    console.log('FB has updated ');
+    // if($scope.loaded === 1)
+    //   $('.isotope').isotope('reloadItems').isotope();
+    // $scope.$emit('iso-init');
+    $scope.$emit('iso-init');
   });
 
   fbEvents.on("child_added", function(snapshot) {    
       var placeName = snapshot.val().name;
       $scope.status = placeName + " has been added";
+      $scope.$emit('iso-updated');
   });
 
   fbEvents.on("child_removed", function(snapshot) {    
       var placeName = snapshot.val().name;
       $scope.status = placeName + " has been removed";
+      // $scope.$emit('iso-init');
   });
 
-  // $scope.isAuthorised = function() {
-  //   return isAuthorised;
-  // };
-
   $scope.modalShown = false;
+ 
   $scope.toggleModal = function() {
     $scope.modalShown = !$scope.modalShown;
   };
@@ -70,13 +76,13 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
   };
 
   $scope.save = function() {
+    $scope.places.$save();
+  };
 
-      $scope.places.$save();
-      // $location.path('/');
-    };
   $scope.timeAgo = function(ms) {
     return moment(ms).fromNow();
   };
+
 });
  
 fg.controller('CreateCtrl', function($scope, $location, $timeout, fbRequestUrl) {
@@ -91,57 +97,6 @@ fg.controller('CreateCtrl', function($scope, $location, $timeout, fbRequestUrl) 
 fg.controller('ShowCtrl', function($scope, $location, $routeParams, $firebase, fbURL, fbRequestUrl, fbEvents) {
   var placeUrl = fbURL + $routeParams.placeId;
   $scope.place = $firebase(new Firebase(placeUrl));
-
-  
-  // $scope.map = {
-  //   center: {
-  //     latitude: 51.293,
-  //     longitude: -0.75
-  //   },
-  //   zoom: 16,
-  //   marker: {
-  //     latitude: 51.293,
-  //     longitude: -0.75
-  //   }
-  // };
-
-  // $scope.place.$on('loaded', function(snapshot) {
-  //   $scope.map.marker.latitude = snapshot.map.latitude;
-  //   $scope.map.marker.longitude = snapshot.map.longitude;
-  //   $scope.map.center.latitude = snapshot.map.latitude;
-  //   $scope.map.center.longitude = snapshot.map.longitude;
-  // });
-
-  // $scope.searchLocationMarker = {
-  //   coords: {
-  //     latitude: 51.293,
-  //     longitude: -0.75
-  //   }
-    // options: { draggable: true },
-    // events: {
-    //     dragend: function (marker, eventName, args) {
-    //         $log.log('marker dragend');
-    //         $log.log(marker.getPosition().lat());
-    //         $log.log(marker.getPosition().lng());
-    //     }
-    // }
-  // };
-   
-  // $scope.place.$on('loaded', function(snapshot) {
-  //   $scope.map.center.latitude = snapshot.lat;
-  //   $scope.map.center.longitude = snapshot.lng;
-  //   $scope.searchLocationMarker.coords.latitude = snapshot.lat;
-  //   $scope.searchLocationMarker.coords.longitude = snapshot.lng;    
-  // });
-  // $scope.destroy = function() {
-  //   $scope.place.$remove();
-  //   $location.path('/');
-  // };
-
-  // $scope.save = function() {
-  //   $scope.place.$save();
-  //   $location.path('/');
-  // };
 });
 
 fg.controller('MapCtrl', function($scope, $location, $routeParams, $firebase, fbURL, fbRequestUrl, fbEvents) {
@@ -157,7 +112,6 @@ fg.controller('MapCtrl', function($scope, $location, $routeParams, $firebase, fb
 
 fg.controller('FeedCtrl', function($scope, $location, $routeParams, $firebase, fbURL, fbRequestUrl, fbEvents) {
   $scope.places = fbRequestUrl;
-  
 });
 
 fg.controller('EditCtrl', 
@@ -183,14 +137,14 @@ fg.controller('SignupCtrl',
   var ref = new Firebase(fbAUTH);
   var auth = new FirebaseSimpleLogin(ref, function(error, user) {
     if (error) {
-        // an error ocurred during login
-        console.log(error);
-      } else if (user) {
-        console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
-      } else {
-        // User has logged out
-      }  
-    });
+      // an error ocurred during login
+      console.log(error);
+    } else if (user) {
+      console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+    } else {
+      // User has logged out
+    }  
+  });
   
   $scope.signup = function() {
     auth.createUser($scope.user.email, $scope.user.password, function(error, user) {

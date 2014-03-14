@@ -15,7 +15,14 @@ html {
     /*margin-top:50px;*/
     /*width:100%;
     background-color: #fff;*/
-    font-size: 14px;
+    /*font-size: 1.2em;*/
+    /*height: 100px;*/
+}
+
+.meta {
+  /*font-size: 0.4em;
+  position: absolute;
+  bottom: 5px;*/
 }
 
 .navbar { margin-bottom: 0; }
@@ -866,7 +873,7 @@ h5 .intro_sections { color:#777; }
     background-color:#f5f5f5; 
   font-size:1.4em;
   /*color:#999;*/
-  height: 250px;
+  /*height: 250px;*/
   overflow-y: auto;
   overflow-x: none;
 }
