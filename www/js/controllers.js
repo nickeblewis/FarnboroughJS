@@ -1,6 +1,6 @@
 var fg = angular.module('fg');
 
-fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
+fg.controller('ListCtrl', function($scope, $timeout, fbRequestUrl, fbEvents, fbAUTH) {
 
   var isAuthorised = false;
 
@@ -43,7 +43,9 @@ fg.controller('ListCtrl', function($scope, fbRequestUrl, fbEvents, fbAUTH) {
     // if($scope.loaded === 1)
     //   $('.isotope').isotope('reloadItems').isotope();
     // $scope.$emit('iso-init');
-    $scope.$emit('iso-init');
+    $timeout(function() {
+      $scope.$emit('my-iso-method', {name:null, params:null});
+    });
   });
 
   fbEvents.on("child_added", function(snapshot) {    
