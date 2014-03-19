@@ -44,14 +44,14 @@ fg.controller('ListCtrl', function($scope, $timeout, fbRequestUrl, fbEvents, fbA
     //   $('.isotope').isotope('reloadItems').isotope();
     // $scope.$emit('iso-init');
     $timeout(function() {
-      $scope.$emit('my-iso-method', {name:null, params:null});
+      $scope.$emit('my-iso-method', {name:'orderBy', params:null});
     });
   });
 
   fbEvents.on("child_added", function(snapshot) {    
       var placeName = snapshot.val().name;
       $scope.status = placeName + " has been added";
-      $scope.$emit('iso-updated');
+      //$scope.$emit('iso-updated');
   });
 
   fbEvents.on("child_removed", function(snapshot) {    
