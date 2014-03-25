@@ -47,7 +47,7 @@
 
       <!-- CARD: Standard -->
       <!-- TODO: col-md-{{place.width}} -->
-      <div class="repeat-item col-md-3 col-sm-6 element place-card general" ng-repeat="place in places | orderByPriority | filter:search | orderBy:'updated':reverse=true" isotope-item>
+      <div class="repeat-item col-md-3 col-sm-6 element place-card general" ng-repeat="place in places | orderByPriority | filter:search | orderBy:'updated'" isotope-item>
         <div class="hover_img {{place.class}}">
           <h2><a data-ng-href="#/show/{{place.$id}}">{{place.name}}</a></h2>
         </div>
